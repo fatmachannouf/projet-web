@@ -275,10 +275,16 @@ header {
       </div>
     </div>
     <div class="button-container">
-      <form action="Connecter.php" method="post">
+      <form action="" method="post">
         <button type="submit" name="action" value="Lire">Lire</button>
+      </form>
+      <form action="" method="post">
         <button type="submit" name="action" value="Ajouter">Ajouter</button>
-        <button type="submit" name="action" value="Modifier">Modifier</button>
+      </form>
+      <form action="Connecter.php" method="post">
+        <button type="submit" name="action" value="Modifier"  >Modifier</button>
+      </form>
+      <form action="" method="post"> 
         <button type="reset" value="Reset">Supprimer</button>
       </form>
     </div>  

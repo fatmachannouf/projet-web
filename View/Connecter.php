@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
-
     <script src="Connecter.js"></script>
 </head>
 <body>
@@ -59,5 +58,6 @@
         <input type="submit" value="Connecter" onclick="return Verif2()">
         <input type="submit" value="S'inscrire" >
     </form>
+    
 </body>
 </html>

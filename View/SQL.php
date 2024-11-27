@@ -12,6 +12,9 @@
             margin: 20px;
             padding: 0;
         }
+        section {
+          counter-increment: section;
+        }
         h1 {
             color: #2c3e50;
             text-align: center;
@@ -19,6 +22,7 @@
         h2 {
             color: #16a085;
             border-bottom: 2px solid #16a085;
+            content: counter(section) ". ";
         }
         h3 {
             color: #2980b9;
