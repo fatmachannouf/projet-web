@@ -1,6 +1,6 @@
 <?php
 
-class question
+class questions
 {
     // Propriétés privées
     private $idquestion;

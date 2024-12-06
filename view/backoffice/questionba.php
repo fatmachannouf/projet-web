@@ -1,3 +1,4 @@
+
 <!-- views/question_list.php -->
 <!DOCTYPE html>
 <html lang="fr">

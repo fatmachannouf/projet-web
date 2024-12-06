@@ -68,14 +68,12 @@ class questionc
         );
 
         $query->execute([
-            'id' => $id,
-            'title' => $offer->getTitle(),
-            'destination' => $offer->getDestination(),
-            'departure_date' => $offer->getDepartureDate()->format('Y-m-d'), 
-            'return_date' => $offer->getReturnDate()->format('Y-m-d'),
-            'price' => $offer->getPrice(),
-            'disponible' => $offer->isDisponible() ? 1 : 0, 
-            'category' => $offer->getCategory()
+            'idquestion'=> $question->getidquestion(),
+            'texte'=> $question->getquestion(),
+                'type' => $question->gettype(),
+                'reponsepossible' => $question->getreponsepossible(),
+                'reponsecorrecte' => $question->getreponsecorrecte(),
+                'note' => $question->getnote(),
         ]);
 
         echo $query->rowCount() . " records UPDATED successfully <br>";
@@ -85,7 +83,7 @@ class questionc
 }
 
 
-    function showquestion($id)
+    function showquestion($idquestion)
     {
         $sql = "SELECT * from question where idquestion = $idquestion";
         $db = config::getConnexion();
@@ -94,7 +92,7 @@ class questionc
             $query->execute();
 
             $offer = $query->fetch();
-            return $offer;
+            return $question;
         } catch (Exception $e) {
             die('Error: ' . $e->getMessage());
         }
