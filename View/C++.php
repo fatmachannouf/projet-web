@@ -1,179 +1,170 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ - Cours complet</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C++ - Cours complet</title>
+        <!-- CSS Links -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="assets/css/fontawesome.css">
+            <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+            <link rel="stylesheet" href="assets/css/owl.css">
+            <link rel="stylesheet" href="assets/css/lightbox.css">
+            <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
 
-    <style>
+            <!-- Owl Carousel CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            padding: 0;
-        }
-        section {
-          counter-increment: section;
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-        }
-        h2 {
-            color: #16a085;
-            border-bottom: 2px solid #16a085;
-            content: counter(section) ". ";
-        }
-        h3 {
-            color: #2980b9;
-        }
-        p {
-            margin: 10px 0;
-        }
-        ul {
-            margin: 10px 20px;
-        }
-        li {
-            margin: 5px 0;
-        }
-    </style>
-</head>
-<body>
+            <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                padding: 0;
+            }
+            section {
+            counter-increment: section;
+            }
+            h1 {
+                color: #2c3e50;
+                text-align: center;
+            }
+            h2 {
+                color: #16a085;
+                border-bottom: 2px solid #16a085;
+                content: counter(section) ". ";
+            }
+            h3 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+            }
+            ul {
+                margin: 10px 20px;
+            }
+            li {
+                margin: 5px 0;
+            }
+            .button-container {
+                    text-align: center; /* Centre le contenu du conteneur */
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px; /* Espace entre les boutons */
+                    margin-top: 30px; /* Espacement vers le haut */
+                }
+
+                .button-container form {
+                    margin: 0;
+                }   
+                .button-container button {
+                    background-color: #007bff; /* Bleu clair */
+                    color: white; /* Texte en blanc */
+                    border: none;
+                    border-radius: 8px; /* Coins arrondis */
+                    padding: 15px 30px; /* Taille du bouton */
+                    font-size: 16px; /* Taille du texte */
+                    cursor: pointer; /* Curseur de souris pointer */
+                    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+                }
+
+                .button-container button:hover {
+                    background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+                    transform: scale(1.05); /* Légère animation d'agrandissement */
+                }
+
+                .button-container button:active {
+                    background-color: #004085; /* Couleur encore plus foncée quand le bouton est cliqué */
+                    transform: scale(1); /* Revenir à la taille originale */
+                }
+
+                .button-container button[type="submit"] {
+                    background-color: #28a745; /* Vert pour 'Ajouter' */
+                }
+
+                .button-container button[type="submit"]:hover {
+                    background-color: #218838; /* Vert foncé au survol */
+                }
+
+                .button-container button[type="submit"]:active {
+                    background-color: #1e7e34; /* Vert encore plus foncé au clic */
+                }
+
+                .button-container button[type="reset"] {
+                    background-color: #dc3545; /* Rouge pour 'Supprimer' */
+                }
+
+                .button-container button[type="reset"]:hover {
+                    background-color: #c82333; /* Rouge plus foncé au survol */
+                }
+
+                .button-container button[type="reset"]:active {
+                    background-color: #bd2130; /* Rouge encore plus foncé au clic */
+                }
+        </style>
+    </head>
+    <body>
     <h1>Cours de C++</h1>
 
-    <h2>Introduction au C++</h2>
+    <h2>Chapitre 1 : Introduction et Bases du Langage</h2>
     <ul>
-        <li>Historique et évolution du langage C++</li>
-        <li>Applications du langage C++</li>
-        <li>Installation et configuration de l'environnement de développement (IDE)</li>
-    </ul>
-
-    <h2>Syntaxe de base</h2>
-    <ul>
+        <li>Historique et applications de C++</li>
+        <li>Installation et configuration de l'IDE</li>
         <li>Structure d'un programme C++</li>
-        <li>Les commentaires</li>
-        <li>Instructions de base (cout, cin)</li>
-        <li>Compilation et exécution d'un programme C++</li>
+        <li>Commentaires et instructions de base (cout, cin)</li>
+        <li>Compilation et exécution d'un programme</li>
     </ul>
 
-    <h2>Variables et types de données</h2>
+    <h2>Chapitre 2 : Variables, Types et Opérateurs</h2>
     <ul>
-        <li>Types de base (int, float, char, bool, etc.)</li>
-        <li>Déclaration et initialisation de variables</li>
-        <li>Constantes et types énumérés</li>
-        <li>Conversion de types (cast)</li>
+        <li>Types de base et déclaration de variables</li>
+        <li>Constantes et conversions de types</li>
+        <li>Opérateurs arithmétiques, logiques et relationnels</li>
+        <li>Opérateurs d'assignation et composés</li>
     </ul>
 
-    <h2>Opérateurs</h2>
-    <ul>
-        <li>Opérateurs arithmétiques, logiques et de comparaison</li>
-        <li>Opérateurs d'assignation et de composés</li>
-        <li>Opérateurs bit à bit</li>
-        <li>Opérateurs relationnels</li>
-    </ul>
-
-    <h2>Structures de contrôle</h2>
+    <h2>Chapitre 3 : Structures de Contrôle et Fonctions</h2>
     <ul>
         <li>Instructions conditionnelles (if, else, switch)</li>
         <li>Boucles (for, while, do-while)</li>
-        <li>Instructions break et continue</li>
-    </ul>
-
-    <h2>Fonctions</h2>
-    <ul>
         <li>Définition et appel de fonctions</li>
         <li>Passage par valeur et par référence</li>
-        <li>Fonctions récursives</li>
-        <li>Surcharge de fonctions</li>
-        <li>Fonctions anonymes (lambda functions)</li>
+        <li>Fonctions récursives et surcharge de fonctions</li>
     </ul>
 
-    <h2>Tableaux et chaînes de caractères</h2>
+    <h2>Chapitre 4 : POO et Gestion de la Mémoire</h2>
     <ul>
-        <li>Tableaux unidimensionnels et multidimensionnels</li>
-        <li>Tableaux dynamiques (new, delete)</li>
-        <li>Manipulation de chaînes de caractères avec string</li>
-    </ul>
-
-    <h2>Pointeurs et références</h2>
-    <ul>
-        <li>Définition et utilisation des pointeurs</li>
-        <li>Pointeurs et tableaux</li>
-        <li>Références et leur utilisation</li>
-        <li>Pointeurs de fonctions</li>
-    </ul>
-
-    <h2>Gestion de la mémoire</h2>
-    <ul>
-        <li>Allocation dynamique de mémoire (new, delete)</li>
-        <li>Fuites de mémoire et gestion des ressources</li>
-    </ul>
-
-    <h2>Structures et classes</h2>
-    <ul>
-        <li>Définition de classes et objets</li>
-        <li>Encapsulation, constructeurs, destructeurs</li>
-        <li>Surcharge des opérateurs</li>
+        <li>Classes et objets (constructeurs, destructeurs)</li>
+        <li>Encapsulation et surcharge d'opérateurs</li>
         <li>Héritage et polymorphisme</li>
+        <li>Allocation dynamique (new, delete)</li>
+        <li>Pointeurs et références</li>
     </ul>
 
-    <h2>Programmation orientée objet (POO)</h2>
+    <h2>Chapitre 5 : Bibliothèques et Programmation Avancée</h2>
     <ul>
-        <li>Concepts de base de la POO</li>
-        <li>Abstraction, héritage, polymorphisme</li>
-        <li>Classes abstraites et interfaces</li>
-        <li>Constructeurs et destructeurs</li>
+        <li>Introduction à la STL (vector, list, map, etc.)</li>
+        <li>Gestion des fichiers (ifstream, ofstream)</li>
+        <li>Exceptions et gestion des erreurs</li>
+        <li>Multithreading et synchronisation</li>
+        <li>Optimisation et bonnes pratiques</li>
     </ul>
 
-    <h2>Templates et génériques</h2>
-    <ul>
-        <li>Introduction aux templates</li>
-        <li>Templates de fonctions et de classes</li>
-        <li>Spécialisation des templates</li>
-    </ul>
-
-    <h2>Exceptions et gestion des erreurs</h2>
-    <ul>
-        <li>Mécanisme des exceptions (try, throw, catch)</li>
-        <li>Personnalisation des exceptions</li>
-        <li>Gestion des erreurs dans le code</li>
-    </ul>
-
-    <h2>Bibliothèques standard C++ (STL)</h2>
-    <ul>
-        <li>Introduction à la STL</li>
-        <li>Containers (vector, list, map, etc.)</li>
-        <li>Itérateurs</li>
-        <li>Algorithmes</li>
-    </ul>
-
-    <h2>Entrée/Sortie (I/O)</h2>
-    <ul>
-        <li>Flux d'entrée/sortie (cin, cout, cerr)</li>
-        <li>Fichiers (ifstream, ofstream, fstream)</li>
-        <li>Sérialisation des objets</li>
-    </ul>
-
-    <h2>Programmation concurrente et multithreading (optionnelle)</h2>
-    <ul>
-        <li>Introduction au multithreading en C++</li>
-        <li>Gestion des threads avec la bibliothèque thread</li>
-        <li>Synchronisation des threads</li>
-    </ul>
-
-    <h2>Optimisation et bonnes pratiques</h2>
-    <ul>
-        <li>Profilage de performance</li>
-        <li>Techniques d'optimisation du code</li>
-        <li>Bonnes pratiques de programmation C++</li>
-    </ul>
-
-    <h2>Programmation avancée</h2>
-    <ul>
-        <li>Manipulation avancée des pointeurs</li>
-        <li>Programmation système en C++</li>
-        <li>Utilisation de bibliothèques tierces (Boost, Qt)</li>
-    </ul>
+    <div class="button-container">
+        <form action="ReadCH.php" method="post">
+            <button type="submit" name="action" value="Lire">Lire</button>
+        </form>
+        <form action="CreateCH.php" method="post">
+            <button type="submit" name="action" value="Ajouter">Ajouter</button>
+        </form>
+        <form action="UpdateCH.php" method="post">
+            <button type="submit" name="action" value="Modifier">Modifier</button>
+        </form>
+        <form action="DeleteCH.php" method="post">
+            <button type="Submit" value="Reset">Supprimer</button>
+        </form>
+    </div>
 </body>
+
 </html>

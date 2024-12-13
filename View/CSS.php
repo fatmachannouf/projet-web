@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours CSS</title>
+
+    <!-- CSS Links -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/fontawesome.css">
+        <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+        <link rel="stylesheet" href="assets/css/owl.css">
+        <link rel="stylesheet" href="assets/css/lightbox.css">
+        <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,86 +47,125 @@
         li {
             margin: 5px 0;
         }
+        .button-container {
+                text-align: center; /* Centre le contenu du conteneur */
+                display: flex;
+                justify-content: center;
+                gap: 20px; /* Espace entre les boutons */
+                margin-top: 30px; /* Espacement vers le haut */
+            }
+
+            .button-container form {
+                margin: 0;
+            }   
+            .button-container button {
+                background-color: #007bff; /* Bleu clair */
+                color: white; /* Texte en blanc */
+                border: none;
+                border-radius: 8px; /* Coins arrondis */
+                padding: 15px 30px; /* Taille du bouton */
+                font-size: 16px; /* Taille du texte */
+                cursor: pointer; /* Curseur de souris pointer */
+                transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+            }
+
+            .button-container button:hover {
+                background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+                transform: scale(1.05); /* Légère animation d'agrandissement */
+            }
+
+            .button-container button:active {
+                background-color: #004085; /* Couleur encore plus foncée quand le bouton est cliqué */
+                transform: scale(1); /* Revenir à la taille originale */
+            }
+
+            .button-container button[type="submit"] {
+                background-color: #28a745; /* Vert pour 'Ajouter' */
+            }
+
+            .button-container button[type="submit"]:hover {
+                background-color: #218838; /* Vert foncé au survol */
+            }
+
+            .button-container button[type="submit"]:active {
+                background-color: #1e7e34; /* Vert encore plus foncé au clic */
+            }
+
+            .button-container button[type="reset"] {
+                background-color: #dc3545; /* Rouge pour 'Supprimer' */
+            }
+
+            .button-container button[type="reset"]:hover {
+                background-color: #c82333; /* Rouge plus foncé au survol */
+            }
+
+            .button-container button[type="reset"]:active {
+                background-color: #bd2130; /* Rouge encore plus foncé au clic */
+            }
     </style>
     
 </head>
 <body>
     <h1>Cours CSS</h1>
-    <h2>1. Introduction à CSS</h2>
-    <h3>Qu'est-ce que CSS ?</h3>
-    <p>CSS (Cascading Style Sheets) est un langage utilisé pour décrire la présentation d'un document HTML.</p>
-    <h3>Histoire et rôle de CSS:</h3>
-    <p>CSS a été créé pour séparer le contenu (HTML) de sa présentation, offrant ainsi une meilleure gestion et réutilisabilité du style.</p>
-    <h3>Intégration CSS:</h3>
+    <h2>1. Introduction et Concepts de Base</h2>
     <ul>
-        <li>Inline : directement dans l'attribut style d'un élément HTML</li>
-        <li>Interne : via une balise <code>&lt;style&gt;</code> dans le document</li>
-        <li>Externe : via un fichier <code>.css</code> lié au document</li>
+        <li>Qu'est-ce que CSS ?</li>
+        <li>Histoire et rôle de CSS.</li>
+        <li>Intégration CSS : inline, interne, externe.</li>
+        <li>Sélecteurs de base : élément, classe, ID.</li>
     </ul>
 
-    <h2>2. Sélecteurs CSS</h2>
+    <h2>2. Propriétés CSS et Mise en Page</h2>
     <ul>
-        <li>Sélecteurs de base : élément, classe, ID</li>
-        <li>Sélecteurs avancés : attributs, pseudo-classes, pseudo-éléments</li>
-        <li>Sélecteurs combinés et hiérarchiques</li>
+        <li>Couleurs (color, background-color).</li>
+        <li>Texte (font-family, font-size, line-height).</li>
+        <li>Marges, bordures, padding.</li>
+        <li>Box model.</li>
+        <li>Positionnement (static, relative, absolute, fixed, sticky).</li>
+        <li>Display (block, inline, inline-block, none).</li>
     </ul>
 
-    <h2>3. Propriétés de base CSS</h2>
+    <h2>3. Positionnement Avancé et Mise en Page Dynamique</h2>
     <ul>
-        <li>Couleurs (color, background-color)</li>
-        <li>Texte (font-family, font-size, line-height)</li>
-        <li>Marges, bordures, et padding</li>
+        <li>Flexbox : bases et utilisation.</li>
+        <li>Grid : bases et utilisation.</li>
+        <li>Transitions et animations.</li>
+        <li>Transformations (rotate, scale, skew).</li>
+        <li>Filtres et ombrages (box-shadow, text-shadow, filters).</li>
     </ul>
 
-    <h2>4. Mise en page et positionnement</h2>
+    <h2>4. Design Responsive et Optimisation</h2>
     <ul>
-        <li>Box model</li>
-        <li>Positionnement (static, relative, absolute, fixed, sticky)</li>
-        <li>Display (block, inline, inline-block, none)</li>
-        <li>Flexbox : bases et utilisation</li>
-        <li>Grid : bases et utilisation</li>
+        <li>Concepts de design responsive.</li>
+        <li>Media queries : syntaxe et exemples.</li>
+        <li>Unités CSS adaptées : %, em, rem, vw, vh.</li>
+        <li>Gestion des performances CSS.</li>
+        <li>Structuration de code (BEM, conventions).</li>
+        <li>Accessibilité et compatibilité navigateur.</li>
     </ul>
 
-    <h2>5. Styles avancés</h2>
+    <h2>5. Outils Avancés et Projets Pratiques</h2>
     <ul>
-        <li>Transitions et animations</li>
-        <li>Transformations (rotate, scale, skew)</li>
-        <li>Filtres et ombrages (box-shadow, text-shadow, filters)</li>
+        <li>Introduction aux préprocesseurs (SASS, LESS).</li>
+        <li>Utilisation de frameworks CSS (Bootstrap, Tailwind).</li>
+        <li>CSS Variables (Custom properties).</li>
+        <li>Nouveautés modernes : CSS Houdini, container queries, etc.</li>
+        <li>Exercices pratiques : création de maquettes et sites responsives.</li>
     </ul>
 
-    <h2>6. Responsiveness et media queries</h2>
-    <ul>
-        <li>Concepts de design responsive</li>
-        <li>Media queries : syntaxe et exemples</li>
-        <li>Unités CSS adaptées : %, em, rem, vw, vh</li>
-    </ul>
-
-    <h2>7. Frameworks et outils CSS</h2>
-    <ul>
-        <li>Introduction aux préprocesseurs (SASS, LESS)</li>
-        <li>Utilisation de frameworks CSS (Bootstrap, Tailwind)</li>
-        <li>Outils de test et de validation CSS</li>
-    </ul>
-
-    <h2>8. Bonnes pratiques et optimisation</h2>
-    <ul>
-        <li>Gestion des performances CSS</li>
-        <li>Structuration de code (BEM, conventions)</li>
-        <li>Accessibilité et compatibilité navigateur</li>
-    </ul>
-
-    <h2>9. CSS moderne et nouveautés</h2>
-    <ul>
-        <li>CSS Variables (Custom properties)</li>
-        <li>CSS Houdini et fonctions avancées</li>
-        <li>Scrolling, container queries, et autres fonctionnalités récentes</li>
-    </ul>
-
-    <h2>10. Exercices pratiques et projets</h2>
-    <ul>
-        <li>Création de maquettes et design</li>
-        <li>Sites web responsives</li>
-        <li>Intégration avec HTML et JavaScript</li>
-    </ul>
+    <div class="button-container">
+        <form action="ReadCH.php" method="post">
+            <button type="submit" name="action" value="Lire">Lire</button>
+        </form>
+        <form action="CreateCH.php" method="post">
+            <button type="submit" name="action" value="Ajouter">Ajouter</button>
+        </form>
+        <form action="UpdateCH.php" method="post">
+            <button type="submit" name="action" value="Modifier">Modifier</button>
+        </form>
+        <form action="DeleteCH.php" method="post">
+            <button type="submit" value="Reset">Supprimer</button>
+        </form>
+    </div>  
 </body>
 </html>

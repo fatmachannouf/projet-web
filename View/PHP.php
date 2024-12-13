@@ -1,249 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introduction à PHP</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introduction à PHP</title>
+
+        <!-- CSS Links -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="assets/css/fontawesome.css">
+            <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+            <link rel="stylesheet" href="assets/css/owl.css">
+            <link rel="stylesheet" href="assets/css/lightbox.css">
+            <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
+
+            <!-- Owl Carousel CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
         <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            padding: 0;
-        }
-        section {
-          counter-increment: section;
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-        }
-        h2 {
-            color: #16a085;
-            border-bottom: 2px solid #16a085;
-            content: counter(section) ". ";
-        }
-        h3 {
-            color: #2980b9;
-        }
-        p {
-            margin: 10px 0;
-        }
-        ul {
-            margin: 10px 20px;
-        }
-        li {
-            margin: 5px 0;
-        }
-    </style>
-</head>
-<body>
-    <h1>Introduction à PHP</h1>
+            <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                padding: 0;
+            }
+            section {
+            counter-increment: section;
+            }
+            h1 {
+                color: #2c3e50;
+                text-align: center;
+            }
+            h2 {
+                color: #16a085;
+                border-bottom: 2px solid #16a085;
+                content: counter(section) ". ";
+            }
+            h3 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+            }
+            ul {
+                margin: 10px 20px;
+            }
+            li {
+                margin: 5px 0;
+            }
+            .button-container {
+                    text-align: center; /* Centre le contenu du conteneur */
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px; /* Espace entre les boutons */
+                    margin-top: 30px; /* Espacement vers le haut */
+                }
 
-    <section>
-        <h2>Historique et utilisation de PHP</h2>
-        <p>PHP a été créé en 1994 par Rasmus Lerdorf. Il est utilisé principalement pour le développement web côté serveur. PHP permet de générer du contenu dynamique sur des pages web.</p>
-    </section>
+                .button-container form {
+                    margin: 0;
+                }   
+                .button-container button {
+                    background-color: #007bff; /* Bleu clair */
+                    color: white; /* Texte en blanc */
+                    border: none;
+                    border-radius: 8px; /* Coins arrondis */
+                    padding: 15px 30px; /* Taille du bouton */
+                    font-size: 16px; /* Taille du texte */
+                    cursor: pointer; /* Curseur de souris pointer */
+                    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+                }
 
-    <section>
-        <h2>Installation et configuration de l'environnement</h2>
-        <p>PHP peut être installé sur un serveur local comme XAMPP, WAMP, ou MAMP, ou sur un serveur web distant. Il suffit d'installer PHP et un serveur web (Apache, Nginx) pour commencer à coder.</p>
-    </section>
+                .button-container button:hover {
+                    background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+                    transform: scale(1.05); /* Légère animation d'agrandissement */
+                }
 
-    <section>
-        <h2>Structure de base d'un fichier PHP</h2>
-        <p>Un fichier PHP est généralement inclus dans un fichier HTML à l'aide de la balise <code>&lt;?php ?&gt;</code>. Le code PHP est exécuté côté serveur.</p>
-        <pre><code>&lt;?php
-echo "Hello, world!";
-?&gt;</code></pre>
-    </section>
+                .button-container button:active {
+                    background-color: #004085; /* Couleur encore plus foncée quand le bouton est cliqué */
+                    transform: scale(1); /* Revenir à la taille originale */
+                }
 
-    <section>
-        <h2>Syntaxe de base</h2>
-        <h3>Variables et types de données</h3>
-        <p>Les variables en PHP commencent par un signe dollar (<code>$</code>) et peuvent contenir différents types de données comme <code>string</code>, <code>integer</code>, <code>float</code>, <code>boolean</code>, etc.</p>
-        <pre><code>$name = "Alice";</code></pre>
+                .button-container button[type="submit"] {
+                    background-color: #28a745; /* Vert pour 'Ajouter' */
+                }
 
-        <h3>Opérateurs et expressions</h3>
-        <p>PHP utilise des opérateurs arithmétiques, relationnels, logiques et d'affectation.</p>
+                .button-container button[type="submit"]:hover {
+                    background-color: #218838; /* Vert foncé au survol */
+                }
 
-        <h3>Structures de contrôle</h3>
-        <p>Les structures conditionnelles <code>if</code>, <code>else</code>, et <code>switch</code> sont utilisées pour tester des conditions.</p>
-        <pre><code>if ($age >= 18) {
-    echo "Vous êtes majeur";
-}</code></pre>
+                .button-container button[type="submit"]:active {
+                    background-color: #1e7e34; /* Vert encore plus foncé au clic */
+                }
 
-        <h3>Boucles</h3>
-        <p>Les boucles <code>for</code>, <code>while</code>, et <code>do-while</code> permettent de répéter des actions.</p>
-        <pre><code>for ($i = 0; $i < 5; $i++) {
-    echo $i;
-}</code></pre>
-    </section>
+                .button-container button[type="reset"] {
+                    background-color: #dc3545; /* Rouge pour 'Supprimer' */
+                }
 
-    <section>
-        <h2>Fonctions</h2>
-        <h3>Déclaration et appel de fonctions</h3>
-        <p>Les fonctions sont déclarées avec <code>function</code> et appelées par leur nom.</p>
-        <pre><code>function sayHello() {
-    echo "Bonjour!";
-}
-sayHello();</code></pre>
+                .button-container button[type="reset"]:hover {
+                    background-color: #c82333; /* Rouge plus foncé au survol */
+                }
 
-        <h3>Paramètres et valeurs de retour</h3>
-        <p>Les fonctions peuvent accepter des paramètres et retourner des valeurs avec <code>return</code>.</p>
-        <pre><code>function add($a, $b) {
-    return $a + $b;
-}
-echo add(2, 3);</code></pre>
+                .button-container button[type="reset"]:active {
+                    background-color: #bd2130; /* Rouge encore plus foncé au clic */
+                }
+        </style>
+    </head>
+    <body>
+        <h1>Introduction à PHP</h1>
 
-        <h3>Portée des variables</h3>
-        <p>Les variables peuvent être locales à une fonction ou globales.</p>
+        <section>
+            <h2>Chapitre 1 : Historique et installation</h2>
+            <h3>Historique et utilisation</h3>
+            <p>PHP a été créé en 1994 par Rasmus Lerdorf. Il est utilisé principalement pour le développement web côté serveur et permet de générer du contenu dynamique sur des pages web.</p>
 
-        <h3>Fonctions anonymes (closures)</h3>
-        <p>Les fonctions anonymes peuvent être utilisées directement sans nom.</p>
-        <pre><code>$greet = function($name) {
-    return "Hello, " . $name;
-};
-echo $greet("Alice");</code></pre>
-    </section>
+            <h3>Installation</h3>
+            <p>PHP peut être installé sur un serveur local comme XAMPP, WAMP ou MAMP. Il suffit d’installer PHP et un serveur web (Apache, Nginx) pour commencer à coder.</p>
+        </section>
 
-    <section>
-        <h2>Tableaux</h2>
-        <h3>Tableaux indexés et associatifs</h3>
-        <p>Les tableaux peuvent être indexés numériquement ou utiliser des clés associatives.</p>
-        <pre><code>$arr = [1, 2, 3];
-$assoc = ["name" => "Alice", "age" => 25];</code></pre>
+        <section>
+            <h2>Chapitre 2 : Structure et syntaxe de base</h2>
+            <h3>Structure de base d'un fichier PHP</h3>
+            <p>Un fichier PHP est inclus dans un fichier HTML à l'aide de la balise <code>&lt;?php ?&gt;</code>. Le code PHP est exécuté côté serveur.</p>
+            <pre><code>&lt;?php
+    echo "Hello, world!";
+    ?&gt;</code></pre>
 
-        <h3>Fonctions de manipulation des tableaux</h3>
-        <p>PHP offre plusieurs fonctions pour manipuler des tableaux, telles que <code>array_push()</code>, <code>array_pop()</code>, etc.</p>
+            <h3>Variables et types de données</h3>
+            <p>Les variables commencent par <code>$</code> et peuvent contenir différents types de données (<code>string</code>, <code>integer</code>, etc.).</p>
+            <pre><code>$name = "Alice";</code></pre>
 
-        <h3>Itération sur des tableaux</h3>
-        <p>Les tableaux peuvent être parcourus avec <code>foreach</code>.</p>
-        <pre><code>foreach ($arr as $value) {
-    echo $value;
-}</code></pre>
-    </section>
+            <h3>Structures de contrôle et boucles</h3>
+            <p>PHP offre des structures comme <code>if</code>, <code>switch</code>, et des boucles comme <code>for</code>, <code>while</code>.</p>
+            <pre><code>if ($age >= 18) {
+        echo "Vous êtes majeur";
+    }</code></pre>
+        </section>
 
-    <section>
-        <h2>Gestion des formulaires</h2>
-        <h3>Méthodes GET et POST</h3>
-        <p>Les méthodes GET et POST sont utilisées pour envoyer des données via des formulaires HTML.</p>
+        <section>
+            <h2>Chapitre 3 : Fonctions et tableaux</h2>
+            <h3>Fonctions</h3>
+            <p>Les fonctions permettent d'organiser le code. Elles acceptent des paramètres et peuvent retourner des valeurs.</p>
+            <pre><code>function add($a, $b) {
+        return $a + $b;
+    }
+    echo add(2, 3);</code></pre>
 
-        <h3>Traitement des données de formulaire</h3>
-        <p>Les données envoyées par un formulaire sont accessibles via <code>$_GET</code> ou <code>$_POST</code>.</p>
-        <pre><code>$name = $_POST['name'];</code></pre>
+            <h3>Tableaux</h3>
+            <p>Les tableaux en PHP peuvent être indexés ou associatifs.</p>
+            <pre><code>$arr = [1, 2, 3];
+            $assoc = ["name" => "Alice", "age" => 25];</code></pre>
+        </section>
 
-        <h3>Validation et sécurisation des données</h3>
-        <p>Il est essentiel de valider et sécuriser les données pour éviter les attaques comme les injections SQL.</p>
-    </section>
+        <section>
+            <h2>Chapitre 4 : Gestion des formulaires et bases de données</h2>
+            <h3>Gestion des formulaires</h3>
+            <p>Les méthodes GET et POST sont utilisées pour envoyer des données via des formulaires HTML.</p>
+            <pre><code>$name = $_POST['name'];</code></pre>
 
-    <section>
-        <h2>Manipulation des chaînes de caractères</h2>
-        <h3>Fonctions pour les chaînes</h3>
-        <p>PHP offre de nombreuses fonctions pour manipuler les chaînes, comme <code>strlen()</code>, <code>str_replace()</code>, et <code>substr()</code>.</p>
+            <h3>Bases de données</h3>
+            <p>PHP peut interagir avec MySQL via PDO ou <code>mysqli</code> pour exécuter des requêtes SQL (SELECT, INSERT, etc.).</p>
+            <pre><code>$pdo = new PDO("mysql:host=localhost;dbname=test", "user", "password");</code></pre>
+        </section>
 
-        <h3>Expressions régulières</h3>
-        <p>Les expressions régulières permettent de rechercher et manipuler des chaînes complexes.</p>
-    </section>
+        <section>
+            <h2>Chapitre 5 : Sécurité et bonnes pratiques</h2>
+            <h3>Sécurité</h3>
+            <p>Protégez vos applications avec des requêtes préparées pour éviter les injections SQL et utilisez <code>password_hash()</code> pour les mots de passe.</p>
 
-    <section>
-        <h2>Gestion des fichiers</h2>
-        <h3>Ouverture, lecture, écriture de fichiers</h3>
-        <p>PHP peut ouvrir, lire et écrire des fichiers avec des fonctions comme <code>fopen()</code>, <code>fread()</code>, et <code>fwrite()</code>.</p>
+            <h3>Bonnes pratiques</h3>
+            <p>Structurez le code pour le rendre lisible et maintenable, et utilisez des outils de débogage pour corriger les erreurs.</p>
+        </section>
 
-        <h3>Téléchargement et gestion des fichiers</h3>
-        <p>PHP permet de gérer les téléchargements de fichiers via des formulaires HTML et le code PHP.</p>
-
-        <h3>Sécurisation des accès aux fichiers</h3>
-        <p>Il est important de sécuriser les fichiers pour éviter les accès non autorisés.</p>
-    </section>
-
-    <section>
-        <h2>Sessions et cookies</h2>
-        <h3>Gestion des sessions en PHP</h3>
-        <p>Les sessions permettent de stocker des informations persistantes sur le serveur.</p>
-
-        <h3>Utilisation des cookies</h3>
-        <p>Les cookies sont utilisés pour stocker des informations côté client.</p>
-
-        <h3>Sécurisation des sessions</h3>
-        <p>Il est crucial de sécuriser les sessions pour éviter les détournements.</p>
-    </section>
-
-    <section>
-        <h2>Programmation orientée objet (POO)</h2>
-        <h3>Classes et objets</h3>
-        <p>La POO permet de créer des classes et des objets pour organiser le code de manière modulaire.</p>
-
-        <h3>Propriétés et méthodes</h3>
-        <p>Les objets ont des propriétés (variables) et des méthodes (fonctions).</p>
-
-        <h3>Constructeurs et destructeurs</h3>
-        <p>Les constructeurs sont utilisés pour initialiser des objets, et les destructeurs pour les nettoyer.</p>
-
-        <h3>Héritage et polymorphisme</h3>
-        <p>PHP prend en charge l'héritage et le polymorphisme pour réutiliser et étendre le code.</p>
-    </section>
-
-    <section>
-        <h2>Bases de données avec MySQL</h2>
-        <h3>Connexion à une base de données</h3>
-        <p>PHP se connecte aux bases de données MySQL avec l'extension <code>mysqli</code> ou PDO.</p>
-
-        <h3>Requêtes SQL (SELECT, INSERT, UPDATE, DELETE)</h3>
-        <p>Les requêtes SQL permettent d'interagir avec les bases de données.</p>
-
-        <h3>Préparation et exécution de requêtes sécurisées</h3>
-        <p>Les requêtes préparées sont utilisées pour prévenir les injections SQL.</p>
-    </section>
-
-    <section>
-        <h2>Gestion des erreurs et exceptions</h2>
-        <h3>Gestion des erreurs avec try/catch</h3>
-        <p>Les blocs <code>try/catch</code> permettent de gérer les exceptions.</p>
-
-        <h3>Types d'exceptions</h3>
-        <p>Les exceptions en PHP permettent de gérer les erreurs de manière structurée.</p>
-
-        <h3>Personnalisation des messages d'erreur</h3>
-        <p>Il est possible de personnaliser les messages d'erreur pour les utilisateurs.</p>
-    </section>
-
-    <section>
-        <h2>Sécurité en PHP</h2>
-        <h3>Protection contre les injections SQL</h3>
-        <p>Les requêtes préparées sont un moyen efficace de protéger les applications contre les injections SQL.</p>
-
-        <h3>Gestion des mots de passe (hashage)</h3>
-        <p>Les mots de passe doivent être stockés de manière sécurisée en utilisant des fonctions de hashage comme <code>password_hash()</code>.</p>
-
-        <h3>Sécurisation des données de formulaire et des sessions</h3>
-        <p>Il est important de valider et de nettoyer les données des formulaires pour éviter les failles de sécurité.</p>
-    </section>
-
-    <section>
-        <h2>Utilisation de frameworks PHP</h2>
-        <h3>Introduction aux frameworks (Laravel, Symfony, etc.)</h3>
-        <p>Les frameworks PHP permettent de gagner du temps en utilisant des bibliothèques et des outils déjà construits.</p>
-
-        <h3>Structure MVC (Modèle-Vue-Contrôleur)</h3>
-        <p>Les frameworks suivent souvent l'architecture MVC pour séparer les différentes parties de l'application.</p>
-
-        <h3>Installation et utilisation de composants de framework</h3>
-        <p>Les composants d'un framework permettent de réutiliser des fonctionnalités courantes dans une application web.</p>
-    </section>
-
-    <section>
-        <h2>Bonnes pratiques et optimisation</h2>
-        <h3>Structure du code et lisibilité</h3>
-        <p>Un code bien structuré et lisible est essentiel pour faciliter la maintenance du projet.</p>
-
-        <h3>Optimisation des performances PHP</h3>
-        <p>Il existe plusieurs techniques pour améliorer les performances de PHP, comme l'utilisation du cache ou la gestion de la mémoire.</p>
-
-        <h3>Débogage et tests unitaires</h3>
-        <p>Les tests unitaires et le débogage sont des pratiques importantes pour assurer la qualité du code.</p>
-    </section>
-</body>
+        <div class="button-container">
+            <form action="ReadCH.php" method="post">
+                <button type="submit" name="action" value="Lire">Lire</button>
+            </form>
+            <form action="CreateCH.php" method="post">
+                <button type="submit" name="action" value="Ajouter">Ajouter</button>
+            </form>
+            <form action="UpdateCH.php" method="post">
+                <button type="submit" name="action" value="Modifier">Modifier</button>
+            </form>
+            <form action="DeleteCH.php" method="post">
+                <button type="Submit" value="Reset">Supprimer</button>
+            </form>
+        </div>
+    </body>
 </html>

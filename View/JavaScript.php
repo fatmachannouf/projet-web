@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction à JavaScript</title>
+    <!-- CSS Links -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/fontawesome.css">
+        <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+        <link rel="stylesheet" href="assets/css/owl.css">
+        <link rel="stylesheet" href="assets/css/lightbox.css">
+        <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,6 +46,61 @@
         li {
             margin: 5px 0;
         }
+        .button-container {
+                text-align: center; /* Centre le contenu du conteneur */
+                display: flex;
+                justify-content: center;
+                gap: 20px; /* Espace entre les boutons */
+                margin-top: 30px; /* Espacement vers le haut */
+            }
+
+            .button-container form {
+                margin: 0;
+            }   
+            .button-container button {
+                background-color: #007bff; /* Bleu clair */
+                color: white; /* Texte en blanc */
+                border: none;
+                border-radius: 8px; /* Coins arrondis */
+                padding: 15px 30px; /* Taille du bouton */
+                font-size: 16px; /* Taille du texte */
+                cursor: pointer; /* Curseur de souris pointer */
+                transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+            }
+
+            .button-container button:hover {
+                background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+                transform: scale(1.05); /* Légère animation d'agrandissement */
+            }
+
+            .button-container button:active {
+                background-color: #004085; /* Couleur encore plus foncée quand le bouton est cliqué */
+                transform: scale(1); /* Revenir à la taille originale */
+            }
+
+            .button-container button[type="submit"] {
+                background-color: #28a745; /* Vert pour 'Ajouter' */
+            }
+
+            .button-container button[type="submit"]:hover {
+                background-color: #218838; /* Vert foncé au survol */
+            }
+
+            .button-container button[type="submit"]:active {
+                background-color: #1e7e34; /* Vert encore plus foncé au clic */
+            }
+
+            .button-container button[type="reset"] {
+                background-color: #dc3545; /* Rouge pour 'Supprimer' */
+            }
+
+            .button-container button[type="reset"]:hover {
+                background-color: #c82333; /* Rouge plus foncé au survol */
+            }
+
+            .button-container button[type="reset"]:active {
+                background-color: #bd2130; /* Rouge encore plus foncé au clic */
+            }
     </style>
 </head>
 <body>
@@ -42,126 +108,75 @@
 <h1>Introduction à JavaScript</h1>
 
 <section>
-    <h2>Historique et utilisation de JavaScript</h2>
-    <p>JavaScript a été créé en 1995 par Brendan Eich chez Netscape. C'est un langage de programmation principalement utilisé pour rendre les pages web interactives. Il est souvent associé à HTML et CSS pour le développement front-end.</p>
+    <a href="JavaScript1.php">
+    <h2>1. Fondamentaux de JavaScript</h2>
+    </a>
+    <ul>
+        <li>Historique et utilisation</li>
+        <li>Installation et configuration</li>
+        <li>Syntaxe de base : variables, types de données, structures de contrôle</li>
+    </ul>
 </section>
 
 <section>
-    <h2>Installation et configuration</h2>
-    <p>JavaScript est intégré directement dans les navigateurs web, il n'y a donc pas besoin d'une installation spécifique. Vous pouvez écrire du code JavaScript directement dans des fichiers HTML en utilisant la balise <code>&lt;script&gt;</code>.</p>
+    <a href="JavaScript2.php">
+    <h2>2. Fonctions et manipulation des données</h2>
+    </a>
+    <ul>
+        <li>Déclaration et appel de fonctions</li>
+        <li>Fonctions fléchées</li>
+        <li>Tableaux et objets : manipulation et itération</li>
+    </ul>
 </section>
 
 <section>
-    <h2>Syntaxe de base</h2>
-    <h3>Variables</h3>
-    <p>Les variables peuvent être déclarées en utilisant <code>var</code>, <code>let</code>, ou <code>const</code>.</p>
-    <pre><code>let x = 5;</code></pre>
-    <h3>Types de données</h3>
-    <p>Les types de données incluent <code>string</code>, <code>number</code>, <code>boolean</code>, <code>object</code>, et <code>array</code>.</p>
+    <a href="JavaScript3.php">
+    <h2>3. Manipulation du DOM</h2>
+    </a>
+    <ul>
+        <li>Sélection d'éléments HTML</li>
+        <li>Modification du contenu et des attributs</li>
+        <li>Événements DOM</li>
+    </ul>
 </section>
 
 <section>
-    <h2>Structures de contrôle</h2>
-    <h3>Conditionnelles</h3>
-    <p>Les structures conditionnelles permettent de tester des conditions avec <code>if</code>, <code>else</code> et <code>switch</code>.</p>
-    <pre><code>if (x > 10) { console.log('x est supérieur à 10'); }</code></pre>
-
-    <h3>Boucles</h3>
-    <p>Les boucles permettent de répéter des actions. Par exemple, <code>for</code>, <code>while</code>, et <code>do-while</code>.</p>
-    <pre><code>for (let i = 0; i < 5; i++) { console.log(i); }</code></pre>
+    <a href="JavaScript4.php">
+    <h2>4. Programmation avancée</h2>
+    </a>
+    <ul>
+        <li>Gestion des erreurs : try/catch</li>
+        <li>Asynchronisme : callbacks, promesses, async/await</li>
+        <li>Modules : import/export</li>
+        <li>Programmation orientée objet : classes et héritage</li>
+    </ul>
 </section>
 
 <section>
-    <h2>Fonctions et portée</h2>
-    <h3>Déclaration et appel de fonctions</h3>
-    <p>Les fonctions sont déclarées avec <code>function</code> et appelées par leur nom.</p>
-    <pre><code>function sayHello() { console.log('Hello!'); }</code></pre>
-
-    <h3>Portée des variables</h3>
-    <p>Les variables peuvent avoir une portée <code>locale</code> (à l'intérieur d'une fonction) ou <code>globale</code> (en dehors de toute fonction).</p>
-
-    <h3>Fonctions fléchées</h3>
-    <p>Les fonctions fléchées (<code>arrow functions</code>) sont une syntaxe plus concise pour écrire des fonctions.</p>
-    <pre><code>const add = (a, b) => a + b;</code></pre>
+    <a href="JavaScript5.php">
+    <h2>5. Bonnes pratiques et optimisation</h2>
+        </a>
+    <ul>
+        <li>Optimisation du code</li>
+        <li>Sécurité en JavaScript</li>
+        <li>Responsiveness et compatibilité</li>
+    </ul>
 </section>
+<a href="JavaScript1.php">Passer au Chapitre 1</a> 
 
-<section>
-    <h2>Tableaux et objets</h2>
-    <h3>Manipulation des tableaux</h3>
-    <p>Les tableaux permettent de stocker des collections d'éléments.</p>
-    <pre><code>let arr = [1, 2, 3, 4];</code></pre>
-
-    <h3>Objets JavaScript</h3>
-    <p>Les objets permettent de stocker des paires clé-valeur.</p>
-    <pre><code>let person = { name: 'Alice', age: 25 }; </code></pre>
-
-    <h3>Itération sur des structures de données</h3>
-    <p>Les boucles <code>for</code> et <code>forEach</code> peuvent être utilisées pour itérer sur des tableaux et objets.</p>
-</section>
-
-<section>
-    <h2>Manipulation du DOM</h2>
-    <h3>Sélection d'éléments HTML</h3>
-    <p>Le DOM (Document Object Model) permet de manipuler les éléments HTML d'une page.</p>
-    <pre><code>let element = document.getElementById('myElement');</code></pre>
-
-    <h3>Modification du contenu et des attributs</h3>
-    <p>Les éléments HTML peuvent être modifiés en changeant leurs attributs ou leur contenu.</p>
-    <pre><code>element.textContent = 'Nouveau texte';</code></pre>
-
-    <h3>Événements DOM</h3>
-    <p>Les événements permettent de réagir aux actions de l'utilisateur, comme un clic.</p>
-    <pre><code>element.addEventListener('click', function() { alert('Clicked!'); });</code></pre>
-</section>
-
-<section>
-    <h2>Gestion des erreurs</h2>
-    <h3>Try/catch</h3>
-    <p>Le bloc <code>try/catch</code> permet de gérer les erreurs sans arrêter l'exécution du programme.</p>
-    <pre><code>try { let result = riskyFunction(); } catch (error) { console.error(error); }</code></pre>
-
-    <h3>Exceptions et gestion des erreurs</h3>
-    <p>Les exceptions peuvent être lancées manuellement avec <code>throw</code>.</p>
-</section>
-
-<section>
-    <h2>Asynchronisme et Promesses</h2>
-    <h3>Callbacks</h3>
-    <p>Les callbacks permettent d'exécuter du code après qu'une action soit terminée.</p>
-
-    <h3>Promesses et async/await</h3>
-    <p>Les promesses et la syntaxe <code>async/await</code> facilitent la gestion des opérations asynchrones.</p>
-    <pre><code>async function fetchData() { let data = await fetch('url'); }</code></pre>
-</section>
-
-<section>
-    <h2>Modules et import/export</h2>
-    <h3>Utilisation de modules</h3>
-    <p>Les modules permettent d'organiser le code JavaScript en plusieurs fichiers.</p>
-
-    <h3>Importation et exportation de fonctionnalités</h3>
-    <p>Les fonctionnalités peuvent être exportées d'un module et importées dans un autre.</p>
-    <pre><code>export const myFunction = () => {}; </code></pre>
-    <pre><code>import { myFunction } from './module.js';</code></pre>
-</section>
-
-<section>
-    <h2>Programmation orientée objet (POO)</h2>
-    <h3>Classes et objets</h3>
-    <p>La programmation orientée objet permet de créer des classes et des objets pour organiser le code.</p>
-    <pre><code>class Person { constructor(name, age) { this.name = name; this.age = age; } }</code></pre>
-
-    <h3>Héritage, polymorphisme</h3>
-    <p>L'héritage permet de créer des classes dérivées, et le polymorphisme permet de redéfinir des méthodes.</p>
-</section>
-
-<section>
-    <h2>Bonnes pratiques et optimisation</h2>
-    <h3>Optimisation du code</h3>
-    <p>Il est important de rédiger un code efficace et lisible.</p>
-
-    <h3>Sécurité en JavaScript</h3>
-    <p>La sécurité est cruciale lors de l'écriture de code JavaScript, notamment contre les attaques comme les injections de code.</p>
-</section>
+<div class="button-container">
+    <form action="ReadCH.php" method="post">
+        <button type="submit" name="action" value="Lire">Lire</button>
+    </form>
+    <form action="CreateCH.php" method="post">
+        <button type="submit" name="action" value="Ajouter">Ajouter</button>
+    </form>
+    <form action="UpdateCH.php" method="post">
+        <button type="submit" name="action" value="Modifier">Modifier</button>
+    </form>
+    <form action="DeleteCH.php" method="post">
+        <button type="Submit" value="Reset">Supprimer</button>
+    </form>
+</div> 
 </body>
 </html>
