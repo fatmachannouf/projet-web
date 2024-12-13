@@ -11,7 +11,18 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
+// Supprimer un certificat si demandé
+if (isset($_GET['delete_certificat_id'])) {
+    $id = intval($_GET['delete_certificat_id']);
+    $stmt = $pdo->prepare("DELETE FROM certificat WHERE id_certificat = ?");
+    $stmt->execute([$id]);
+    header("Location: certif.php");
+    exit();
+}
 
+// Lire tous les certificats
+$stmt = $pdo->query("SELECT * FROM certificat ORDER BY date_certificat DESC");
+$certificats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Supprimer un score
 if (isset($_GET['delete_score_id'])) {
     $delete_score_id = $_GET['delete_score_id'];
@@ -77,282 +88,293 @@ if (isset($_GET['edit_id'])) {
     $stmt->execute([$edit_id]);
     $edit_questions = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Question et Scores</title>
+    <title>Application intégrée</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Corps de la page */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    /* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
 
-        /* Conteneur principal */
-        .container {
-            display: flex;
-            flex: 1;
-        }
+/* Conteneur principal */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
 
-        /* Section de gauche (menu) */
-        .sidebar {
-            width: 200px;
-            background: #ffffff;
-            color: #333;
-            padding: 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+/* Barre latérale */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
 
-        .sidebar button {
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 100%;
-            background: #2575fc;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
+.sidebar button {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
 
-        .sidebar button:hover {
-            background: #6a11cb;
-        }
+.sidebar button:hover {
+    background-color: #1abc9c;
+}
 
-        /* Section principale (contenu) */
-        .content {
-            flex: 1;
-            padding: 20px;
-            background: #ffffff;
-            color: #333;
-            overflow-y: auto;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+.sidebar button:focus {
+    outline: none;
+    background-color: #16a085;
+}
 
-        /* Sections (questions et scores) */
-        .section {
-            display: none;
-            margin-top: 20px;
-        }
+/* Contenu principal */
+.content {
+    flex: 1;
+    padding: 20px;
+}
 
-        /* Titre */
-        .CRUD h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #2575fc;
-        }
+/* Sections */
+.section {
+    display: none;
+}
 
-        /* Formulaire */
-        form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
+.section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
 
-        form input, form button {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            transition: all 0.3s ease;
-        }
+.section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        form input:focus {
-            outline: none;
-            border-color: #2575fc;
-            box-shadow: 0 0 5px rgba(37, 117, 252, 0.7);
-        }
+.section table th,
+.section table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
 
-        form button {
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
+.section table th {
+    background-color: #34495e;
+    color: #fff;
+}
 
-        form button:hover {
-            background: linear-gradient(90deg, #2575fc, #6a11cb);
-            transform: scale(1.05);
-        }
+.section table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-        /* Tableau */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+.section table tr:hover {
+    background-color: #d1ecf1;
+}
 
-        table th, table td {
-            padding: 12px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
+.section a {
+    color: #3498db;
+    text-decoration: none;
+}
 
-        table th {
-            background: #6a11cb;
-            color: #fff;
-            font-weight: bold;
-        }
+.section a:hover {
+    text-decoration: underline;
+}
 
-        table tbody tr:nth-child(odd) {
-            background: #f9f9f9;
-        }
+/* Formulaires */
+form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
 
-        table tbody tr:nth-child(even) {
-            background: #f1f1f1;
-        }
+form input[type="text"],
+form input[type="number"],
+form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
-        table tbody tr:hover {
-            background: #e8f0fe;
-        }
+form button {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        table a {
-            color: #2575fc;
-            text-decoration: none;
-            font-weight: bold;
-        }
+form button:hover {
+    background-color: #16a085;
+}
 
-        table a:hover {
-            text-decoration: underline;
-        }
-    </style>
+/* Messages d'alerte */
+.alert {
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: #fff;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #2ecc71;
+}
+
+</style>
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar avec les boutons -->
+        <!-- Barre latérale -->
         <div class="sidebar">
-            <button onclick="showSection('questions')">Gestion des questions</button>
-            <button onclick="showSection('scores')">Gestion des scores</button>
+            <button onclick="showSection('certificats')">Certificats</button>
+            <button onclick="showSection('scores')">Scores</button>
+            <button onclick="showSection('questions')">Questions</button>
         </div>
 
-        <!-- Contenu principal avec les sections -->
+        <!-- Contenu principal -->
         <div class="content">
-            <!-- Section pour les questions -->
+            <!-- Section Certificats -->
+            <div id="certificats" class="section">
+                <h2>Gestion des Certificats</h2>
+                <?php if (empty($certificats)): ?>
+                    <p>Aucun certificat trouvé.</p>
+                <?php else: ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Date</th>
+                                <th>Commentaire</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($certificats as $cert): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($cert['id_certificat']) ?></td>
+                                    <td><?= htmlspecialchars($cert['nom']) ?></td>
+                                    <td><?= htmlspecialchars($cert['email']) ?></td>
+                                    <td><?= htmlspecialchars($cert['date_certificat']) ?></td>
+                                    <td><?= htmlspecialchars($cert['commentaire']) ?></td>
+
+                                    <td><a href="?delete_certificat_id=<?= $cert['id_certificat'] ?>">Supprimer</a></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+            </div>
+
+            <!-- Section Scores -->
+            <div id="scores" class="section">
+                <h2>Scores des utilisateurs</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Score total</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($resultat as $row): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['userid']) ?></td>
+                                <td><?= htmlspecialchars($row['total_score']) ?></td>
+                                <td><?= htmlspecialchars($row['last_test_date']) ?></td>
+                                <td><a href="?delete_score_id=<?= $row['userid'] ?>">Supprimer</a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section Questions -->
             <div id="questions" class="section">
-                <h2>CRUD Question</h2>
-                <!-- Formulaire d'ajout ou de modification -->
-                <form method="POST" action="" id="questionForm">
-    <input type="hidden" name="idquestion" value="<?= $edit_questions['idquestion'] ?? '' ?>">
-    <input type="text" name="texte" placeholder="Texte" value="<?= htmlspecialchars($edit_questions['texte'] ?? '') ?>" >
-    <input type="text" name="type" placeholder="Type" value="<?= htmlspecialchars($edit_questions['type'] ?? '') ?>" >
-    <input type="text" name="reponsepossible" placeholder="Réponses possibles" value="<?= htmlspecialchars($edit_questions['reponsepossible'] ?? '') ?>" >
-    <input type="text" name="reponsecorrecte" placeholder="Réponse correcte" value="<?= htmlspecialchars($edit_questions['reponsecorrecte'] ?? '') ?>" >
-    <?php if ($edit_questions): ?>
-        <button type="submit" name="update">Mettre à jour</button>
+            <h2>Gestion des Questions</h2>
+
+<!-- Formulaire de création ou modification -->
+<form method="POST">
+    <input type="hidden" name="idquestion" value="<?= isset($edit_questions) ? htmlspecialchars($edit_questions['idquestion']) : '' ?>">
+    <input type="text" name="texte" placeholder="Texte de la question" value="<?= isset($edit_questions) ? htmlspecialchars($edit_questions['texte']) : '' ?>" >
+    <input type="text" name="type" placeholder="Type (ex: QCM)" value="<?= isset($edit_questions) ? htmlspecialchars($edit_questions['type']) : '' ?>" >
+    <input type="text" name="reponsepossible" placeholder="Réponses possibles (séparées par des virgules)" value="<?= isset($edit_questions) ? htmlspecialchars($edit_questions['reponsepossible']) : '' ?>">
+    <input type="text" name="reponsecorrecte" placeholder="Réponse correcte" value="<?= isset($edit_questions) ? htmlspecialchars($edit_questions['reponsecorrecte']) : '' ?>" >
+    <?php if (isset($edit_questions)): ?>
+        <button type="submit" name="update">Modifier</button>
     <?php else: ?>
         <button type="submit" name="create">Créer</button>
     <?php endif; ?>
 </form>
 
-
-                <!-- Tableau des questions -->
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Texte</th>
-                        <th>Type</th>
-                        <th>Réponses possibles</th>
-                        <th>Réponse correcte</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($questions as $q): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($q['texte']) ?></td>
-                            <td><?= htmlspecialchars($q['type']) ?></td>
-                            <td><?= htmlspecialchars($q['reponsepossible']) ?></td>
-                            <td><?= htmlspecialchars($q['reponsecorrecte']) ?></td>
-                            <td>
-                                <a href="?edit_id=<?= $q['idquestion'] ?>">Modifier</a> |
-                                <a href="?delete_id=<?= $q['idquestion'] ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Section pour les scores -->
-            <div id="scores" class="section">
-                <h2>Scores des utilisateurs</h2>
-                <!-- Bouton de tri -->
-                <form method="GET" action="">
-                    <button type="submit" name="order_by" value="<?= $order_by === 'ASC' ? 'DESC' : 'ASC' ?>">
-                        Trier par score (<?= $order_by === 'ASC' ? 'croissant' : 'décroissant' ?>)
-                    </button>
-                </form>
-
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID Utilisateur</th>
-                        <th>Score total</th>
-                        <th>Date du dernier test</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($resultat as $row): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($row['userid']) ?></td>
-                            <td><?= htmlspecialchars($row['total_score']) ?></td>
-                            <td><?= htmlspecialchars($row['last_test_date']) ?></td>
-                            <td>
-                                <a href="?delete_score_id=<?= $row['userid'] ?>" onclick="return confirm('Supprimer ce score ?')">Supprimer</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+<!-- Liste des questions -->
+<table>
+    <thead>
+        <tr>
+            <th>Texte</th>
+            <th>Type</th>
+            <th>Réponses possibles</th>
+            <th>Réponse correcte</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($questions as $q): ?>
+            <tr>
+                <td><?= htmlspecialchars($q['texte']) ?></td>
+                <td><?= htmlspecialchars($q['type']) ?></td>
+                <td><?= htmlspecialchars($q['reponsepossible']) ?></td>
+                <td><?= htmlspecialchars($q['reponsecorrecte']) ?></td>
+                <td>
+                    <a href="?edit_id=<?= $q['idquestion'] ?>">Modifier</a>
+                    <a href="?delete_id=<?= $q['idquestion'] ?>">Supprimer</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+</div>
         </div>
     </div>
 
     <script>
         function showSection(section) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(function (sec) {
-                sec.style.display = 'none';
-            });
+            document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
             document.getElementById(section).style.display = 'block';
         }
-
-        // Afficher par défaut la section "questions"
-        showSection('questions');
-        
-    // Fonction pour valider le formulaire
-    document.getElementById("questionForm").addEventListener("submit", function(event) {
-        // Récupérer tous les champs du formulaire
-        const texte = document.querySelector('input[name="texte"]').value;
-        const type = document.querySelector('input[name="type"]').value;
-        const reponsepossible = document.querySelector('input[name="reponsepossible"]').value;
-        const reponsecorrecte = document.querySelector('input[name="reponsecorrecte"]').value;
-
-        // Vérifier si tous les champs sont remplis
-        if (texte === '' || type === '' || reponsepossible === '' || reponsecorrecte === '') {
-            // Si un champ est vide, empêcher la soumission du formulaire et afficher une alerte
-            event.preventDefault();
-            alert("Tous les champs doivent être remplis !");
-        } else {
-            // Si tous les champs sont remplis, afficher un message de confirmation
-            alert("Question créée avec succès !");
-        }
-    });
-
-
+        showSection('certificats');
     </script>
 </body>
 </html>

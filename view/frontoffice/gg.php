@@ -291,7 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_test'])) {
             <div id="certificate">
                 <h2>Félicitations !</h2>
                 <p>Vous avez obtenu un score de <?= $score ?>/<?= $totalQuestions ?>. Vous avez droit à un certificat.</p>
-                <a href="#">Télécharger votre certificat</a>
+                <a href="certificat.php">Télécharger votre certificat</a>
             </div>
         <?php endif; ?>
     </div>
