@@ -102,6 +102,20 @@
 
                 .button-container button[type="reset"]:active {
                     background-color: #bd2130; /* Rouge encore plus foncé au clic */
+                    .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
                 }
         </style>
     </head>
@@ -109,7 +123,9 @@
     <h1>Cours de Langage C</h1>
 
     <section>
+        <a href="C1.php">
         <h2>Chapitre 1 : Introduction au langage C</h2>
+        </a>
         <ul>
             <li>Historique et contexte</li>
             <li>Applications du langage C</li>
@@ -122,7 +138,9 @@
     </section>
 
     <section>
+        <a href="C2.php">
         <h2>Chapitre 2 : Bases du C : Variables, Types, et Opérateurs</h2>
+        </a>
         <ul>
             <li>Types de base (int, float, char, etc.)</li>
             <li>Déclaration et initialisation de variables</li>
@@ -134,7 +152,9 @@
     </section>
 
     <section>
+        <a href="C3.php">
         <h2>Chapitre 3 : Contrôle du flux et structures complexes</h2>
+        </a>
         <ul>
             <li>Instructions conditionnelles (if, else, switch)</li>
             <li>Boucles (for, while, do-while)</li>
@@ -148,7 +168,9 @@
     </section>
 
     <section>
+        <a href="C4.php">
         <h2>Chapitre 4 : Concepts avancés du C : Pointeurs et Structures</h2>
+        </a>
         <ul>
             <li>Définition et utilisation des pointeurs</li>
             <li>Pointeurs et tableaux</li>
@@ -163,7 +185,9 @@
     </section>
 
     <section>
+        <a href="C5.php">
         <h2>Chapitre 5 : Manipulation avancée et pratiques professionnelles</h2>
+        </a>
         <ul>
             <li>Ouverture, lecture, et écriture de fichiers</li>
             <li>Manipulation des fichiers avec les fonctions standard (fopen, fclose, fread, fwrite)</li>
@@ -179,6 +203,13 @@
             <li>Systèmes d'exploitation et programmation système en C</li>
         </ul>
     </section>
+
+    <section>
+            <div class="button-container">
+                <a href="C1.php">Suivant</a>
+                <a href="Matiére.php">Retour à l'accueil</a>
+            </div>
+            </section>
 
     <div class="button-container">
         <form action="ReadCH.php" method="post">

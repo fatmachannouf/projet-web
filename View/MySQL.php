@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cours MySQL</title>
-            <!-- CSS Links -->
-            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+           
+    <!-- CSS Links -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="assets/css/fontawesome.css">
             <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
             <link rel="stylesheet" href="assets/css/owl.css">
@@ -16,7 +17,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         <style>
-
+            <style>
             body {
                 font-family: Arial, sans-serif;
                 line-height: 1.6;
@@ -102,6 +103,21 @@
                 .button-container button[type="reset"]:active {
                     background-color: #bd2130; /* Rouge encore plus foncé au clic */
                 }
+                .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
         </style>
     </head>
     <body>
@@ -109,7 +125,9 @@
 
     <!-- Chapitre 1: Introduction et Bases Fondamentales -->
     <section>
+        <a href="MySQL1.php">
         <h2>Chapitre 1 : Introduction et Bases Fondamentales</h2>
+        </a>
         <h3>Introduction à MySQL</h3>
         <p>MySQL est un système de gestion de base de données relationnelle open-source, utilisé pour stocker et gérer des données dans des applications web et autres systèmes.</p>
         <h3>Bases de données et tables</h3>
@@ -118,7 +136,9 @@
 
     <!-- Chapitre 2: Manipulation des Données -->
     <section>
+        <a href="MySQL2.php">
         <h2>Chapitre 2 : Manipulation des Données</h2>
+        </a>
         <h3>Insertion, mise à jour et suppression de données</h3>
         <p>Ajouter, mettre à jour et supprimer des données avec les commandes INSERT, UPDATE et DELETE.</p>
         <h3>Sélection des données avec SELECT</h3>
@@ -129,7 +149,9 @@
 
     <!-- Chapitre 3: Fonctionnalités Avancées -->
     <section>
+        <a href="MySQL3.php">
         <h2>Chapitre 3 : Fonctionnalités Avancées</h2>
+        </a>
         <h3>Tri et ordonnancement des résultats</h3>
         <p>Organiser les résultats avec ORDER BY, ASC et DESC.</p>
         <h3>Fonctions d'agrégation</h3>
@@ -142,7 +164,9 @@
 
     <!-- Chapitre 4: Gestion et Optimisation -->
     <section>
+        <a href="MySQL4.php">
         <h2>Chapitre 4 : Gestion et Optimisation</h2>
+        </a>
         <h3>Indexation et performance</h3>
         <p>Créer des index pour optimiser les performances et comprendre les différents types d'index.</p>
         <h3>Transactions et gestion des transactions</h3>
@@ -157,7 +181,9 @@
 
     <!-- Chapitre 5: Intégration et Avancées Pratiques -->
     <section>
+        <a href="MySQL1.php">
         <h2>Chapitre 5 : Intégration et Avancées Pratiques</h2>
+        </a>
         <h3>Sécurisation de MySQL</h3>
         <p>Protéger les données avec SSL/TLS et une bonne gestion des permissions.</p>
         <h3>MySQL Avancé</h3>
@@ -169,6 +195,13 @@
         <h3>Utilisation de frameworks avec MySQL</h3>
         <p>Découvrir l'intégration de frameworks comme Laravel ou Symfony avec MySQL.</p>
     </section>
+
+            <section>
+            <div class="button-container">
+                <a href="MySQL1.php">Suivant</a>
+                <a href="Matiére.php">Retour à l'accueil</a>
+            </div>
+            </section>
 
     <div class="button-container">
         <form action="ReadCH.php" method="post">

@@ -103,6 +103,21 @@
             .button-container button[type="reset"]:active {
                 background-color: #bd2130; /* Rouge encore plus foncé au clic */
             }
+            .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
   </style>
 </head>
 <body>
@@ -170,7 +185,12 @@
             </ul>
         </section>
     </main>
-    <a href="HTML1.php">Passer au Chapitre 1</a> 
+    <section>
+        <div class="button-container">
+            <a href="HTML1.php">Suivant</a>
+            <a href="Matiére.php">Retour à l'accueil</a>
+        </div>
+        </section>
     <div class="button-container">
         <form action="ReadCH.php" method="post">
             <button type="submit" name="action" value="Lire">Lire</button>

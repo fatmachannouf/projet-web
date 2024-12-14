@@ -102,6 +102,21 @@
                 .button-container button[type="reset"]:active {
                     background-color: #bd2130; /* Rouge encore plus foncé au clic */
                 }
+                .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
         </style>
     </head>
     <body>
@@ -109,7 +124,9 @@
 
     <!-- Chapitre 1: Introduction à SQL -->
     <section>
+        <a href="SQL1.php">
         <h2>Chapitre 1 : Introduction à SQL</h2>
+        </a>
         <h3>Qu'est-ce que SQL ?</h3>
         <p>SQL (Structured Query Language) est un langage utilisé pour gérer et manipuler des bases de données relationnelles.</p>
 
@@ -119,7 +136,9 @@
 
     <!-- Chapitre 2: Bases de données et tables -->
     <section>
+        <a href="SQL2.php">
         <h2>Chapitre 2 : Bases de données et tables</h2>
+        </a>
         <h3>Création d'une base de données</h3>
         <p>Une base de données est un ensemble de tables stockant des informations.</p>
 
@@ -132,7 +151,9 @@
 
     <!-- Chapitre 3: Manipulation des données -->
     <section>
+        <a href="SQL3.php">
         <h2>Chapitre 3 : Manipulation des données</h2>
+        </a>
         <h3>Insertion et mise à jour</h3>
         <p>La commande <code>INSERT</code> permet d'ajouter des données, et <code>UPDATE</code> permet de les modifier.</p>
 
@@ -145,7 +166,9 @@
 
     <!-- Chapitre 4: Filtres, conditions et jointures -->
     <section>
+        <a href="SQL4.php">
         <h2>Chapitre 4 : Filtres, conditions et jointures</h2>
+        </a>
         <h3>Utilisation de <code>WHERE</code></h3>
         <p>La clause <code>WHERE</code> filtre les résultats selon des conditions.</p>
 
@@ -155,7 +178,9 @@
 
     <!-- Chapitre 5: Optimisation et transactions -->
     <section>
+        <a href="SQL5.php">
         <h2>Chapitre 5 : Optimisation et transactions</h2>
+        </a>
         <h3>Indexation</h3>
         <p>Les index améliorent la performance des requêtes en accélérant la recherche de données.</p>
 
@@ -165,6 +190,12 @@
         <h3>Analyse des performances</h3>
         <p>Analyser et optimiser les requêtes aide à éviter les goulots d'étranglement.</p>
     </section>
+        <section>
+        <div class="button-container">
+            <a href="SQL1.php">Suivant</a>
+            <a href="Matiére.php">Retour à l'accueil</a>
+        </div>
+        </section>
 
     <div class="button-container">
         <form action="ReadCH.php" method="post">

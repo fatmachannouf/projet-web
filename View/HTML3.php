@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Création de Formulaires et Tableaux</title>
+    <title>Chapitre 3 : Création de Formulaires et Tableaux</title>
     <!-- CSS Links -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -101,11 +101,26 @@
                 .button-container button[type="reset"]:active {
                     background-color: #bd2130; /* Rouge encore plus foncé au clic */
                 }
+                .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
         </style>
 </head>
 <body>
     <header>
-        <h1>Création de Formulaires et Tableaux</h1>
+        <h1>Chapitre 3 : Création de Formulaires et Tableaux</h1>
     </header>
     <main>
         <section>
@@ -145,6 +160,12 @@
             </pre>
         </section>
     </main>
-    <a href="HTML4.php">Passer au Chapitre 4</a> 
+    <section>
+        <div class="button-container">
+            <a href="HTML2.php">Précédent</a>
+            <a href="HTML4.php">Suivant</a>
+            <a href="Matiére.php">Retour à l'accueil</a>
+        </div>
+        </section> 
 </body>
 </html>

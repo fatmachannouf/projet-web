@@ -102,12 +102,28 @@
                 .button-container button[type="reset"]:active {
                     background-color: #bd2130; /* Rouge encore plus foncé au clic */
                 }
+                .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
         </style>
     </head>
     <body>
     <h1>Cours de C++</h1>
-
+    <a href="C++1.php">
     <h2>Chapitre 1 : Introduction et Bases du Langage</h2>
+    </a>
     <ul>
         <li>Historique et applications de C++</li>
         <li>Installation et configuration de l'IDE</li>
@@ -115,16 +131,18 @@
         <li>Commentaires et instructions de base (cout, cin)</li>
         <li>Compilation et exécution d'un programme</li>
     </ul>
-
+    <a href="C++2.php">
     <h2>Chapitre 2 : Variables, Types et Opérateurs</h2>
+    </a>
     <ul>
         <li>Types de base et déclaration de variables</li>
         <li>Constantes et conversions de types</li>
         <li>Opérateurs arithmétiques, logiques et relationnels</li>
         <li>Opérateurs d'assignation et composés</li>
     </ul>
-
+    <a href="C++3.php">
     <h2>Chapitre 3 : Structures de Contrôle et Fonctions</h2>
+    </a>
     <ul>
         <li>Instructions conditionnelles (if, else, switch)</li>
         <li>Boucles (for, while, do-while)</li>
@@ -132,8 +150,9 @@
         <li>Passage par valeur et par référence</li>
         <li>Fonctions récursives et surcharge de fonctions</li>
     </ul>
-
+    <a href="C++4.php">
     <h2>Chapitre 4 : POO et Gestion de la Mémoire</h2>
+    </a>
     <ul>
         <li>Classes et objets (constructeurs, destructeurs)</li>
         <li>Encapsulation et surcharge d'opérateurs</li>
@@ -141,8 +160,9 @@
         <li>Allocation dynamique (new, delete)</li>
         <li>Pointeurs et références</li>
     </ul>
-
+    <a href="C++5.php">
     <h2>Chapitre 5 : Bibliothèques et Programmation Avancée</h2>
+    </a>
     <ul>
         <li>Introduction à la STL (vector, list, map, etc.)</li>
         <li>Gestion des fichiers (ifstream, ofstream)</li>
@@ -150,6 +170,13 @@
         <li>Multithreading et synchronisation</li>
         <li>Optimisation et bonnes pratiques</li>
     </ul>
+
+    <section>
+            <div class="button-container">
+                <a href="C++1.php">Suivant</a>
+                <a href="Matiére.php">Retour à l'accueil</a>
+            </div>
+            </section>
 
     <div class="button-container">
         <form action="ReadCH.php" method="post">

@@ -61,6 +61,21 @@
             background-color: #ccc;
             cursor: not-allowed;
         }
+        .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
     </style>
 </head>
 <body>
@@ -240,6 +255,11 @@
             document.getElementById('resetButton').disabled = true;
         }
     </script>
-
+    <section>
+        <div class="button-container">
+            <a href="JavaScript5.php">Précédent</a>
+            <a href="Matiére.php">Retour à l'accueil</a>
+        </div>
+        </section>
 </body>
 </html>

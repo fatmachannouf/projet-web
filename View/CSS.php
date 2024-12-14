@@ -102,12 +102,29 @@
             .button-container button[type="reset"]:active {
                 background-color: #bd2130; /* Rouge encore plus foncé au clic */
             }
+            .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
     </style>
     
 </head>
 <body>
     <h1>Cours CSS</h1>
+    <a href="CSS1.php">
     <h2>1. Introduction et Concepts de Base</h2>
+    </a>
     <ul>
         <li>Qu'est-ce que CSS ?</li>
         <li>Histoire et rôle de CSS.</li>
@@ -115,7 +132,9 @@
         <li>Sélecteurs de base : élément, classe, ID.</li>
     </ul>
 
+    <a href="CSS2.php">
     <h2>2. Propriétés CSS et Mise en Page</h2>
+    </a>
     <ul>
         <li>Couleurs (color, background-color).</li>
         <li>Texte (font-family, font-size, line-height).</li>
@@ -125,7 +144,9 @@
         <li>Display (block, inline, inline-block, none).</li>
     </ul>
 
+    <a href="CSS3.php">
     <h2>3. Positionnement Avancé et Mise en Page Dynamique</h2>
+    </a>
     <ul>
         <li>Flexbox : bases et utilisation.</li>
         <li>Grid : bases et utilisation.</li>
@@ -134,7 +155,9 @@
         <li>Filtres et ombrages (box-shadow, text-shadow, filters).</li>
     </ul>
 
+    <a href="CSS4.php">
     <h2>4. Design Responsive et Optimisation</h2>
+    </a>
     <ul>
         <li>Concepts de design responsive.</li>
         <li>Media queries : syntaxe et exemples.</li>
@@ -144,7 +167,9 @@
         <li>Accessibilité et compatibilité navigateur.</li>
     </ul>
 
+    <a href="CSS5.php">
     <h2>5. Outils Avancés et Projets Pratiques</h2>
+    </a>
     <ul>
         <li>Introduction aux préprocesseurs (SASS, LESS).</li>
         <li>Utilisation de frameworks CSS (Bootstrap, Tailwind).</li>
@@ -152,7 +177,12 @@
         <li>Nouveautés modernes : CSS Houdini, container queries, etc.</li>
         <li>Exercices pratiques : création de maquettes et sites responsives.</li>
     </ul>
-
+    <section>
+            <div class="button-container">
+                <a href="CSS1.php">Suivant</a>
+                <a href="Matiére.php">Retour à l'accueil</a>
+            </div>
+            </section>
     <div class="button-container">
         <form action="ReadCH.php" method="post">
             <button type="submit" name="action" value="Lire">Lire</button>

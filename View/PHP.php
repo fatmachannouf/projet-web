@@ -104,13 +104,30 @@
                 .button-container button[type="reset"]:active {
                     background-color: #bd2130; /* Rouge encore plus foncé au clic */
                 }
+                .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
         </style>
     </head>
     <body>
         <h1>Introduction à PHP</h1>
 
         <section>
+            <a href="PHP1.php">
             <h2>Chapitre 1 : Historique et installation</h2>
+            </a>
             <h3>Historique et utilisation</h3>
             <p>PHP a été créé en 1994 par Rasmus Lerdorf. Il est utilisé principalement pour le développement web côté serveur et permet de générer du contenu dynamique sur des pages web.</p>
 
@@ -119,7 +136,9 @@
         </section>
 
         <section>
+            <a href="PHP2.php">
             <h2>Chapitre 2 : Structure et syntaxe de base</h2>
+            </a>
             <h3>Structure de base d'un fichier PHP</h3>
             <p>Un fichier PHP est inclus dans un fichier HTML à l'aide de la balise <code>&lt;?php ?&gt;</code>. Le code PHP est exécuté côté serveur.</p>
             <pre><code>&lt;?php
@@ -138,7 +157,9 @@
         </section>
 
         <section>
+            <a href="PHP3.php">
             <h2>Chapitre 3 : Fonctions et tableaux</h2>
+            </a>
             <h3>Fonctions</h3>
             <p>Les fonctions permettent d'organiser le code. Elles acceptent des paramètres et peuvent retourner des valeurs.</p>
             <pre><code>function add($a, $b) {
@@ -153,7 +174,9 @@
         </section>
 
         <section>
+            <a href="PHP4.php">
             <h2>Chapitre 4 : Gestion des formulaires et bases de données</h2>
+            </a>
             <h3>Gestion des formulaires</h3>
             <p>Les méthodes GET et POST sont utilisées pour envoyer des données via des formulaires HTML.</p>
             <pre><code>$name = $_POST['name'];</code></pre>
@@ -164,14 +187,21 @@
         </section>
 
         <section>
+            <a href="PHP5.php">
             <h2>Chapitre 5 : Sécurité et bonnes pratiques</h2>
+            </a>
             <h3>Sécurité</h3>
             <p>Protégez vos applications avec des requêtes préparées pour éviter les injections SQL et utilisez <code>password_hash()</code> pour les mots de passe.</p>
 
             <h3>Bonnes pratiques</h3>
             <p>Structurez le code pour le rendre lisible et maintenable, et utilisez des outils de débogage pour corriger les erreurs.</p>
         </section>
-
+        <section>
+        <div class="button-container">
+            <a href="PHP1.php">Suivant</a>
+            <a href="Matiére.php">Retour à l'accueil</a>
+        </div>
+        </section>
         <div class="button-container">
             <form action="ReadCH.php" method="post">
                 <button type="submit" name="action" value="Lire">Lire</button>
