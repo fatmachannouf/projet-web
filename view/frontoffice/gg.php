@@ -264,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_test'])) {
 </head>
 <body>
     <div class="container">
-        <h1>Test de Programmation</h1>
+        <h1>Test</h1>
         <form method="POST" action="">
             <?php foreach ($questions as $index => $question): ?>
                 <div class="questions" data-question-id="<?= $question['idquestion'] ?>">

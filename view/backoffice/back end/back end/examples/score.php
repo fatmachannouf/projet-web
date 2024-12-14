@@ -11,6 +11,7 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
+
 // Supprimer un score
 if (isset($_GET['delete_score_id'])) {
     $delete_score_id = $_GET['delete_score_id'];
@@ -40,7 +41,6 @@ $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scores des utilisateurs</title>
     <style>
-        /* Styles de base */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -114,7 +114,23 @@ $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
             background: #c0392b;
         }
 
-        /* Responsiveness */
+        .btn-sort {
+            display: inline-block;
+            margin: 10px auto;
+            padding: 10px 15px;
+            background: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+
+        .btn-sort:hover {
+            background: #2980b9;
+        }
+
         @media (max-width: 768px) {
             th, td {
                 font-size: 12px;
@@ -131,6 +147,14 @@ $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Section Scores -->
     <div id="scores" class="section">
         <h2>Scores des utilisateurs</h2>
+
+        <!-- Bouton de tri -->
+        <div style="text-align: center; margin-bottom: 10px;">
+            <a class="btn-sort" href="?order_by=<?= ($order_by === 'ASC') ? 'DESC' : 'ASC' ?>">
+                Trier par score (<?= ($order_by === 'ASC') ? 'Décroissant' : 'Croissant' ?>)
+            </a>
+        </div>
+
         <table>
             <thead>
                 <tr>

@@ -326,7 +326,7 @@ https://templatemo.com/tm-573-eduwell
                           <span>6 Weeks</span>
                           <span class="last-span">1 Certificate</span>
                           <div class="text-button">
-                            <a href="js.html">testez-vous ici</a>
+                            <a href="js.php">testez-vous ici</a>
                           </div>
                         </div>
                       </div>
@@ -344,7 +344,7 @@ https://templatemo.com/tm-573-eduwell
                           <span>4 Weeks</span>
                           <span class="last-span">1 Certificate</span>
                           <div class="text-button">
-                            <a href="java.html">testez-vous ici</a>
+                            <a href="java.php">testez-vous ici</a>
                           </div>
                         </div>
                       </div>
@@ -361,7 +361,7 @@ https://templatemo.com/tm-573-eduwell
                           <span>4 Weeks</span>
                           <span class="last-span">2 Certificates</span>
                           <div class="text-button">
-                            <a href="c++.html">testez-vous ici</a>
+                            <a href="c++.php">testez-vous ici</a>
                           </div>
                         </div>
                       </div>
