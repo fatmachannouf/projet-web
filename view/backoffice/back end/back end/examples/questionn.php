@@ -156,6 +156,7 @@ if (isset($_GET['edit_id'])) {
 </head>
 <body>
     <div class="container">
+    <div id="questions" class="section">
         <h2>Gestion des Questions</h2>
 
         <!-- Formulaire de création ou modification -->
@@ -198,6 +199,7 @@ if (isset($_GET['edit_id'])) {
                 <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
     </div>
 </body>
 </html>
