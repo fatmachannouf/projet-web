@@ -65,7 +65,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/tables.html">
+                        <a href="../examples/tables.php">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>Table List</p>
                         </a>

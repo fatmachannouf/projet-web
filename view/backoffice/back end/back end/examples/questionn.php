@@ -1,7 +1,7 @@
 <?php
 // Connexion à la base de données
 $host = 'localhost';
-$dbname = '9arini';
+$dbname = 'integration';
 $user = 'root';
 $password = '';
 
@@ -99,21 +99,21 @@ if (isset($_GET['edit_id'])) {
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/icons.html">
+                        <a href="../examples/certificat.php">
                             <i class="now-ui-icons education_atom"></i>
-                            <p>Icons</p>
+                            <p>gestion des certificats</p>
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/map.html">
+                        <a href="../examples/score.php">
                             <i class="now-ui-icons location_map-big"></i>
-                            <p>Maps</p>
+                            <p>gestions des scores</p>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="../examples/notifications.html">
+                        <a href="../examples/questionn.php">
                             <i class="now-ui-icons ui-1_bell-53"></i>
-                            <p>Notifications</p>
+                            <p>gestions des questions</p>
                         </a>
                     </li>
                     <li>
@@ -123,7 +123,7 @@ if (isset($_GET['edit_id'])) {
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/tables.html">
+                        <a href="../examples/tables.php">
                             <i class="now-ui-icons design_bullet-list-67"></i>
                             <p>Table List</p>
                         </a>

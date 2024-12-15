@@ -118,7 +118,7 @@ shuffle($puzzlePieces); // Mélange aléatoire
             const correctOrder = ["1", "2", "3", "4"];
 
             if (JSON.stringify(order) === JSON.stringify(correctOrder)) {
-    window.location.href = "http://localhost/integration/view/frontoffice/indexp.php";
+    window.location.href = "http://localhost/projet/view/frontoffice/indexp.php";
 } else {
                 window.location.href = "robot.php";
             }

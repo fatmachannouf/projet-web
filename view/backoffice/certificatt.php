@@ -1,7 +1,7 @@
 <?php
 // Connexion à la base de données
 $host = 'localhost';
-$dbname = '9arini';
+$dbname = 'integration';
 $user = 'root';
 $password = '';
 

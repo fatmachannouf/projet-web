@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('C:\xampp\htdocs\integration\dbcon.php');
+include('C:\xampp\htdocs\projet\dbcon.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +86,7 @@ include('C:\xampp\htdocs\integration\dbcon.php');
             </div>
         </div>
     </div>
-    <a href="C:\xampp\htdocs\integration\view\frontoffice\logout.php" class="btn btn-danger">Logout</a>
+    <a href="C:\xampp\htdocs\projet\view\frontoffice\logout.php" class="btn btn-danger">Logout</a>
 
     <script>
     $(document).ready(function(){
