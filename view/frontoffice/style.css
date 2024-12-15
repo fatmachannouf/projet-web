@@ -1,0 +1,164 @@
+/* Header Styling */
+.header-area {
+    background-color: #4169e1; /* Royal Blue */
+    width: 100%;
+    padding: 15px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav a {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover Effect on Links */
+.nav a:hover {
+    background-color: #3658a7;
+    color: #f5f5dc;
+    transform: scale(1.1);
+}
+
+/* Active Link Styling */
+.nav a.active {
+    background-color: #f5f5dc;
+    color: #4169e1;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sub-menu */
+.nav li.has-sub:hover > .sub-menu {
+    display: block;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #4169e1;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sub-menu li {
+    width: 200px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.sub-menu a {
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Sub-menu Hover Effect */
+.sub-menu a:hover {
+    background-color: #3658a7;
+}
+
+/* Menu Trigger for Mobile */
+.menu-trigger {
+    display: none;
+    background-color: #4169e1;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.menu-trigger span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    margin: 5px auto;
+    transition: transform 0.3s ease;
+}
+
+/* Show Menu Trigger on Mobile */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #4169e1;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .nav li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav li a {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .menu-trigger {
+        display: block;
+    }
+
+    .menu-trigger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-trigger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-trigger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav.active {
+        display: flex;
+    }
+}
+
+/* Smooth Scroll */
+a.scroll-to-section {
+    scroll-behavior: smooth;
+}

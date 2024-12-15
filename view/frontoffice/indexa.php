@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('C:\xampp\htdocs\integration\dbcon.php');
+include('dbcon.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,42 +12,6 @@ include('C:\xampp\htdocs\integration\dbcon.php');
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          <img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="#services">COURSES</a></li>
-                          <li class="scroll-to-section"><a href="#courses">CERTIFICATION</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
-                                  <li><a href="contact-us.html">Contact Us</a></li>
-                              </ul>
-                          </li>
-                          <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li> 
-                          <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
     <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
@@ -86,7 +50,7 @@ include('C:\xampp\htdocs\integration\dbcon.php');
             </div>
         </div>
     </div>
-    <a href="C:\xampp\htdocs\integration\view\frontoffice\logout.php" class="btn btn-danger">Logout</a>
+    <a href="logout.php" class="btn btn-danger">Logout</a>
 
     <script>
     $(document).ready(function(){
