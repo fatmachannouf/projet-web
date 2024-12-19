@@ -258,8 +258,6 @@ form button:hover {
             <button onclick="showSection('certificats')">Certificats</button>
             <button onclick="showSection('scores')">Scores</button>
             <button onclick="showSection('questions')">Questions</button>
-            <button onclick="showSection('Cours')">Cours</button>
-            <button onclick="showSection('Chapitre')">Chapitre</button>
         </div>
 
         <!-- Contenu principal -->
@@ -378,83 +376,5 @@ form button:hover {
         }
         showSection('certificats');
     </script>
-
-<div id="Cours" class="section">
-            <h2>Gestion des Cours</h2>
-
-<!-- Formulaire de création ou modification -->
-<form method="POST">
-    <input type="hidden" name="NomC" value="<?= isset($NomC) ? htmlspecialchars($NomC['NomC']) : '' ?>">
-    <input type="text" name="texte" placeholder="Nom de Cours" value="<?= isset($NomC) ? htmlspecialchars($NomC['texte']) : '' ?>" >
-    <?php if (isset($NomC)): ?>
-        <button type="submit" name="Read">Lire</button>
-</form>
-
-<!-- Liste des questions -->
-<table>
-    <thead>
-        <tr>
-            <th>Nom_Cours</th>
-            <th>Image</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($NomC as $NC ): ?>
-            <tr>
-                <td><?= htmlspecialchars($NC['NomC']) ?></td>
-                <td><?= htmlspecialchars($NC['ImageC']) ?></td>
-                <td><?= htmlspecialchars($NC['DescriptionC']) ?></td>
-                <td>
-                    <a href="?edit_NomC=<?= $NC['NomC'] ?>">Modifier</a>
-                    <a href="?delete_NomC=<?= $NC['NomC'] ?>">Supprimer</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-</div>
-        </div>
-    </div>
-
-    <div id="Chapitre" class="section">
-            <h2>Gestion des Chapitres</h2>
-
-<!-- Formulaire de création ou modification -->
-<form method="POST">
-    <input type="hidden" name="NomCh" value="<?= isset($NomCh) ? htmlspecialchars($NomCh['NomCh']) : '' ?>">
-    <input type="text" name="texte" placeholder="Nom de Chapitre" value="<?= isset($NomCh) ? htmlspecialchars($NomCh['texte']) : '' ?>" >
-    <?php if (isset($NomCh)): ?>
-        <button type="submit" name="Read">Lire</button>
-</form>
-
-<!-- Liste des questions -->
-<table>
-    <thead>
-        <tr>
-            <th>Nom_Chapitre</th>
-            <th>Numero_Chapitre</th>
-            <th>Contenue</th>
-            <th>NomC</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($NomCH as $NCh ): ?>
-            <tr>
-                <td><?= htmlspecialchars($NCh['NomCh']) ?></td>
-                <td><?= htmlspecialchars($NCh['NumeroCh']) ?></td>
-                <td><?= htmlspecialchars($NCh['Contenue']) ?></td>
-                <td><?= htmlspecialchars($NCh['NomC']) ?></td>
-                <td>
-                    <a href="?edit_NomCh=<?= $NCh['NomC'] ?>">Modifier</a>
-                    <a href="?delete_NomCh=<?= $NCh['NomC'] ?>">Supprimer</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-</div>
-        </div>
-    </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php    
 session_start();
-include('C:\xampp\htdocs\Ahmed\Integration\dbcon.php');
+include('C:\xampp\htdocs\projet\dbcon.php');
 
 if (isset($_POST['login_btn'])) {
     $email = $_POST['email'];
@@ -29,9 +29,9 @@ if (isset($_POST['login_btn'])) {
 
             // Redirection en fonction du rôle
             if ($_SESSION['role'] == 'admin') {
-                header('Location: /3aslemaa/back end/examples/dashboard.php'); // Rediriger vers le tableau de bord admin
+                header('Location: /projet/view/backoffice/back end/back end/examples/dashboard.php'); // Rediriger vers le tableau de bord admin
             } elseif ($_SESSION['role'] == 'enseignant') {
-                header('Location: courses.php'); // Rediriger vers la page des cours
+                header('Location: /projet/view/backoffice/back end/back end/examples/dashboard.php'); // Rediriger vers la page des cours
             } else {
                 header('Location: puzzel.php'); // Rediriger vers le tableau de bord étudiant
             }
@@ -155,9 +155,90 @@ if (isset($_POST['login_btn'])) {
         a:hover {
             text-decoration: underline;
         }
+        .main-banner .right-image img {
+    width: 50%; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 100%; /* Ensure the image doesn't stretch beyond its container */
+}
+/* Style for the headings */
+.main-banner .header-text h6 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    color: #3498db; /* Blue color for the subtitle */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 0.5s; /* Delay the h6 animation */
+}
+
+.main-banner .header-text h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3rem;
+    color: #2c3e50; /* Darker color for the main heading */
+    font-weight: bold;
+    line-height: 1.3;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 1s; /* Delay the h2 animation */
+}
+
+.main-banner .header-text em {
+    color: #e74c3c; /* Red color for emphasis */
+    font-style: normal;
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional hover effect for the h2 */
+.main-banner .header-text h2:hover {
+    color: #f39c12; /* Hover color change to gold */
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
     </style>
 </head>
 <body>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
+
+<section class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center">
+          <div class="header-text">
+            <br><br><br>
+            <h6>Welcome to our school</h6>
+            <h2>Best Place To Learn Programming <em>Language!</em></h2>
+           
+          </div>
+        </div>
+        <br><br>
+        <div class="col-lg-6">
+          <div class="right-image">
+            <img src="assets/images/body.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
@@ -189,12 +270,7 @@ if (isset($_POST['login_btn'])) {
         </div>
     </div>
 </header>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br><br>
+
 <div class="container mt-4">
     <div class="login-form">
         <h2 class="text-center">Login</h2>
@@ -221,6 +297,12 @@ if (isset($_POST['login_btn'])) {
         <p class="text-center">Forgot your password? <a href="forgot_password.php">Reset it here</a></p>
     </div>
 </div>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
 
 </body>
 </html>

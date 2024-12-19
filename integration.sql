@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 18 déc. 2024 à 22:10
+-- Généré le : mer. 18 déc. 2024 à 19:36
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `integration`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categorie`
+--
+
+CREATE TABLE `categorie` (
+  `id_categorie` int(11) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`id_categorie`, `type`, `description`, `image`) VALUES
+(7, 'AI7', 'Artificial intelligence', '67598e52c13e3-lumiere.jpg'),
+(8, 'test8', 'test8', '67598e696e446-OnePeace1.jpg'),
+(9, 'power bi', 'power bi', '67598e83c869e-one-piece-2023.jpg'),
+(10, 'test22', 'test222', '67598fe166e16-logo-2582748_640.png'),
+(11, 'AI', 'ccccccccccc', '6759a749dda23-one-piece-2023.jpg'),
+(12, 'AI', 'zzet', '675a2a6b9b586-logo-2582748_640.png'),
+(13, 'rrr', 'rrr', '675a2c0b99732-logo-2582748_640.png'),
+(14, 'zzzze', 'eeee', '675a3028cb3c0-OnePeace1.jpg'),
+(15, 'rrr', 'rrr', '675a30e7822f0-OnePeace1.jpg'),
+(16, 'eee', 'eee', '675a32afc60f7-OnePeace1.jpg');
 
 -- --------------------------------------------------------
 
@@ -48,42 +77,30 @@ INSERT INTO `certificat` (`id_certificat`, `nom`, `email`, `date_certificat`, `c
 -- --------------------------------------------------------
 
 --
--- Structure de la table `chapitre`
+-- Structure de la table `offre`
 --
 
-CREATE TABLE `chapitre` (
-  `NomCh` varchar(50) NOT NULL,
-  `NumeroCh` int(3) NOT NULL,
-  `Contenue` mediumtext NOT NULL,
-  `NomC` int(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `cours`
---
-
-CREATE TABLE `cours` (
-  `NomC` varchar(100) NOT NULL,
-  `ImageC` varchar(9000) NOT NULL,
-  `DescriptionC` varchar(5000) NOT NULL
+CREATE TABLE `offre` (
+  `id_offre` int(11) NOT NULL,
+  `titre` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `duree` varchar(50) NOT NULL,
+  `id_categorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `cours`
+-- Déchargement des données de la table `offre`
 --
 
-INSERT INTO `cours` (`NomC`, `ImageC`, `DescriptionC`) VALUES
-('C', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\C.PNG', 'C is a general-purpose programming language that has been widely used for over 50 years. C is very powerful; it has been used to develop operating systems, databases, applications, etc.'),
-('C++', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\C++.PNG', 'C++ is a popular programming language. C++ is used to create computer programs, and is one of the most used language in game development. C++ was developed as an extension of C, and both languages have almost the same syntax.'),
-('CSS', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\CSS.JPG', 'CSS is the language we use to style an HTML document. CSS describes how HTML elements should be displayed. This tutorial will teach you CSS from basic to advanced.'),
-('HTML', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\HTML.JPG', 'HTML is the standard markup language for Web pages. With HTML you can create your own Website. HTML is easy to learn - You will enjoy it!'),
-('JavaScript', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\JS.JPG', 'JavaScript is the world\'s most popular programming language. JavaScript is the programming language of the Web. JavaScript is easy to learn. This tutorial will teach you JavaScript from basic to advanced.'),
-('MySQL', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\MySQL.PNG', 'MySQL is a widely used relational database management system (RDBMS). MySQL is free and open-source. MySQL is ideal for both small and large applications.'),
-('PHP', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\PHP.JPG', 'PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages. PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft\'s ASP.'),
-('PYTHON', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\PYTHON.PNG', 'Python is a popular programming language. Python can be used on a server to create web applications.'),
-('SQL', 'C:\\xampp\\htdocs\\Learnora\\View\\Images\\SQL.PNG', 'SQL is a standard language for storing, manipulating and retrieving data in databases. Our SQL tutorial will teach you how to use SQL in: MySQL, SQL Server, MS Access, Oracle, Sybase, Informix, Postgres, and other database systems.');
+INSERT INTO `offre` (`id_offre`, `titre`, `description`, `image`, `duree`, `id_categorie`) VALUES
+(6, '1', 'ZZ', '675a1f7da8beb-logo-2582748_640.png', 'Z', 7),
+(7, '124', 'EER', '675a229b73367-logo-2582748_640.png', '22', 7),
+(8, 'zzz', 'zzz', '675a2dde93314-lumiere.jpg', 'zz', 8),
+(9, 'yyy', 'uuu', '675a2dfeeae9e-lumiere.jpg', 'èè', 7),
+(10, 'dddd4', 'eeeeeeeeeeeee', '675b68f50f38d-lumiere.jpg', '3 mois', 7),
+(11, 'intelligence artificielle', 'fffffzedzczed  zecz  zezed', '675b6afaecc08-lumiere.jpg', '2 mois', 7),
+(12, 'cccccccccccc', 'csd sdcd sdd', '675b6b9bc6c43-logo-2582748_640.png', '3 mois', 7);
 
 -- --------------------------------------------------------
 
@@ -258,7 +275,16 @@ INSERT INTO `resultat` (`idtest`, `userid`, `idquestion`, `note`, `date`) VALUES
 (390, 'user123', 6, 1, '2024-12-14 14:29:29'),
 (391, 'user123', 14, 1, '2024-12-14 14:29:29'),
 (392, 'user123', 15, 1, '2024-12-14 14:29:29'),
-(393, 'user123', 17, 1, '2024-12-14 14:29:29');
+(393, 'user123', 17, 1, '2024-12-14 14:29:29'),
+(394, 'user123', 3, 0, '2024-12-18 17:21:13'),
+(395, 'user123', 4, 1, '2024-12-18 17:21:13'),
+(396, 'user123', 3, 0, '2024-12-18 17:21:28'),
+(397, 'user123', 4, 1, '2024-12-18 17:21:28'),
+(398, 'user123', 5, 1, '2024-12-18 17:21:28'),
+(399, 'user123', 6, 0, '2024-12-18 17:21:28'),
+(400, 'user123', 14, 1, '2024-12-18 17:21:28'),
+(401, 'user123', 15, 0, '2024-12-18 17:21:28'),
+(402, 'user123', 17, 0, '2024-12-18 17:21:28');
 
 -- --------------------------------------------------------
 
@@ -283,7 +309,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `fullname`, `email`, `password`, `configpassword`, `role`, `photo`, `reset_token_hash`, `reset_token_expires_at`) VALUES
-(1, 'eya', 'eya.trabelsi.2@esprit.tn', '777777', '777777', 'student', NULL, NULL, NULL),
+(1, 'eya', 'eya.trabelsi.2@esprit.tn', '123123', '123123', 'student', NULL, NULL, NULL),
 (8, 'eya', 'eya.trabelsi.2@esprit.tn', '30', '30', 'student', NULL, NULL, NULL),
 (9, 'eya', 'eya.trabelsi.2@esprit.tn', '30', '30', 'student', NULL, NULL, NULL),
 (10, 'eya', 'admin@gamil.com', '30', '30', 'student', NULL, NULL, NULL),
@@ -312,6 +338,12 @@ INSERT INTO `students` (`id`, `fullname`, `email`, `password`, `configpassword`,
 --
 
 --
+-- Index pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id_categorie`);
+
+--
 -- Index pour la table `certificat`
 --
 ALTER TABLE `certificat`
@@ -319,17 +351,11 @@ ALTER TABLE `certificat`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Index pour la table `chapitre`
+-- Index pour la table `offre`
 --
-ALTER TABLE `chapitre`
-  ADD PRIMARY KEY (`NomCh`),
-  ADD KEY `NomC` (`NomC`);
-
---
--- Index pour la table `cours`
---
-ALTER TABLE `cours`
-  ADD PRIMARY KEY (`NomC`);
+ALTER TABLE `offre`
+  ADD PRIMARY KEY (`id_offre`),
+  ADD KEY `FK` (`id_categorie`);
 
 --
 -- Index pour la table `questions`
@@ -356,10 +382,22 @@ ALTER TABLE `students`
 --
 
 --
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `id_categorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT pour la table `certificat`
 --
 ALTER TABLE `certificat`
   MODIFY `id_certificat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT pour la table `offre`
+--
+ALTER TABLE `offre`
+  MODIFY `id_offre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `questions`
@@ -371,7 +409,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT pour la table `resultat`
 --
 ALTER TABLE `resultat`
-  MODIFY `idtest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
+  MODIFY `idtest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=403;
 
 --
 -- AUTO_INCREMENT pour la table `students`
@@ -382,6 +420,12 @@ ALTER TABLE `students`
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `offre`
+--
+ALTER TABLE `offre`
+  ADD CONSTRAINT `FK` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id_categorie`);
 
 --
 -- Contraintes pour la table `resultat`

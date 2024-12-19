@@ -1,6 +1,7 @@
 <?php 
 session_start();
 
+
 // Mélanger les pièces du puzzle
 $puzzlePieces = [
     ['id' => 'piece-1', 'image' => '1.jpg'],
@@ -118,7 +119,7 @@ shuffle($puzzlePieces); // Mélange aléatoire
             const correctOrder = ["1", "2", "3", "4"];
 
             if (JSON.stringify(order) === JSON.stringify(correctOrder)) {
-    window.location.href = "http://localhost/Ahmed/Integration/view/frontoffice/indexp.php";
+    window.location.href = "http://localhost/projet/view/frontoffice/indexp.php";
 } else {
                 window.location.href = "robot.php";
             }

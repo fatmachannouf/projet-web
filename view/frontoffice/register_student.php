@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('C:\xampp\htdocs\Ahmed\Integration\dbcon.php');
+include('C:\xampp\htdocs\projet\dbcon.php');
 
 if (isset($_POST['register_btn'])) {
     $fullname = $_POST['fullname'];
@@ -81,10 +81,115 @@ if (isset($_POST['register_btn'])) {
                 </div>
             </div>
         </div>
+        <style>
+        body {
+            background: #f4f7fc;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .header-area {
+            background-color: #03195c;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            width: 200px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .main-nav ul li {
+            margin: 0 20px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .main-nav ul li a:hover {
+            color: #f0a500;
+            text-decoration: underline;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .login-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .login-form:hover {
+            transform: translateY(-10px);
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #f0a500;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #d88b00;
+        }
+
+        .alert {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        a {
+            color: #f0a500;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        .main-banner .right-image img {
+    width: 50%; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 100%; /* Ensure the image doesn't stretch beyond its container */
+}    </style>
     </header>
 <br>
 <br>
 <br>
+<br>
+<br><br>
 <br>
 <br>
     <div class="container mt-4">

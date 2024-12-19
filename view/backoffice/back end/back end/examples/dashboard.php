@@ -35,7 +35,7 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active">
-                        <a href="../examples/dashboard.html">
+                        <a href="../examples/dashboard.php">
                             <i class="now-ui-icons design_app"></i>
                             <p>Dashboard</p>
                         </a>
@@ -59,9 +59,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/user.html">
+                        <a href="../examples/tachee.php">
                             <i class="now-ui-icons users_single-02"></i>
-                            <p>User Profile</p>
+                            <p>to do list</p>
                         </a>
                     </li>
                     <li>
@@ -71,9 +71,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../examples/typography.html">
+                        <a href="CategorieList.php">
                             <i class="now-ui-icons text_caps-small"></i>
-                            <p>Typography</p>
+                            <p>Formation</p>
                         </a>
                     </li>
                     <li class="active-pro">

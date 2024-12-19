@@ -1051,22 +1051,27 @@ section.testimonials:after {
   margin-top: 30px;
   font-size: 20px;
   font-weight: 900;
+  text-align: center; 
   position: relative;
 }
 
 .testimonials .item span {
   font-size: 13px;
   font-weight: 700;
-  color: #dc8cdb;
+  color: gray;
+  text-align: justify;
 }
 
 .testimonials .item img {
-  max-width: 44px;
-  z-index: 2;
-  position: absolute;
-  right: 30px;
-  bottom: 30px
+  display: block; /* L'image s'affiche comme un bloc */
+  margin: 0 auto; /* Centre l'image horizontalement */
+  width: 200px; /* Largeur fixe */
+  height: 200px; /* Hauteur fixe */
+  object-fit: cover; /* Ajuste le contenu de l'image pour remplir la taille spécifiée */
+  position: relative;
+  z-index: 1;
 }
+
 
 .testimonials .owl-dots {
   text-align: center;
@@ -1906,4 +1911,40 @@ body {
   section.more-info .count-area-content .count-title {
     font-size: 22px;
   }
+}
+
+
+/* Section offres */
+.offers {
+  display: grid; /* Utilisation de CSS Grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes avec tailles égales */
+  gap: 20px; /* Espacement entre les colonnes et les lignes */
+  /* background-color: #d9d9d9; */
+  background-color: transparent;
+  padding: 20px;
+}
+
+.offer {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.offer img {
+  width: 100%; /* Les images s'adaptent à la largeur du conteneur */
+  height: 200px; /* Fixe une hauteur uniforme */
+  object-fit: cover; /* Coupe ou redimensionne l'image tout en gardant son ratio */
+  border-radius: 10px;
+}
+
+.offer h3 {
+  color: #5a79a5;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.offer p {
+  font-size: 14px;
+  color: #555;
 }

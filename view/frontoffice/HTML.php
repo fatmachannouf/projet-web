@@ -1,3 +1,8 @@
+<?php 
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -189,6 +194,7 @@
         <div class="button-container">
             <a href="HTML1.php">Suivant</a>
             <a href="Matiére.php">Retour à l'accueil</a>
+            <a href="Todo.php">My todo list</a>
         </div>
         </section>
     <div class="button-container">

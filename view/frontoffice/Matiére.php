@@ -1,5 +1,8 @@
 
-
+<?php 
+    session_start();
+    
+?>
 
 
 <!DOCTYPE html>
@@ -130,7 +133,7 @@
                         <div class="service-item">
                             <div class="icon">
                                 <a href="HTML.php">
-                                    <img src="Images/HTML.jpg" alt="HTML" width="60%" id="html-image" name="html-image">
+                                    <img src="html.png" alt="HTML" width="20" height="10" id="html-image" name="html-image">
                                 </a>
                             </div>
                             <h4 id="html-title" name="html-title">HTML</h4>
@@ -142,7 +145,7 @@
                         <div class="service-item">
                             <div class="icon">
                                 <a href="CSS.php">
-                                    <img src="Images/CSS.jpg" alt="CSS" id="css-image" name="css-image">
+                                    <img src="css.png" alt="CSS" id="css-image" name="css-image">
                                 </a>
                             </div>
                             <h4 id="css-title" name="css-title">CSS</h4>
@@ -154,7 +157,7 @@
                         <div class="service-item">
                             <div class="icon">
                                 <a href="JavaScript.php">
-                                    <img src="Images/JS.jpg" alt="JS" id="js-image" name="js-image">
+                                    <img src="JS.png" alt="JS" id="js-image" widht="5" height="10" name="js-image">
                                 </a>
                             </div>
                             <h4 id="js-title" name="js-title">JavaScript</h4>
@@ -166,7 +169,7 @@
                         <div class="service-item">
                             <div class="icon">
                                 <a href="PHP.php">
-                                    <img src="Images/PHP.jpg" alt="PHP" id="php-image" name="php-image">
+                                    <img src="php.png" alt="PHP" id="php-image" name="php-image">
                                 </a>
                             </div>
                             <h4 id="php-title" name="php-title">PHP</h4>
@@ -178,7 +181,7 @@
                         <div class="service-item">
                             <div class="icon">
                                 <a href="SQL.php">
-                                    <img src="Images/SQL.png" alt="SQL" id="sql-image" name="sql-image">
+                                    <img src="sql.png" alt="SQL" id="sql-image" name="sql-image">
                                 </a>
                             </div>
                             <h4 id="sql-title" name="sql-title">SQL</h4>
@@ -226,7 +229,7 @@
                         <div class="service-item">
                             <div class="icon">
                                 <a href="PYTHON.php">
-                                    <img src="Images/PYTHON.jpg" alt="PYTHON" id="python-image" name="python-image">
+                                    <img src="python.jpg" alt="PYTHON" id="python-image" name="python-image">
                                 </a>
                             </div>
                             <h4 id="python-title" name="python-title">PYTHON</h4>

@@ -1,26 +1,33 @@
+<?php
+session_start();
+include('C:\xampp\htdocs\projet\controller\CategorieController.php');
+$categorie = new CategorieController();
+$categories = $categorie->listCategories();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <title>EduWell - Education HTML5 Template</title>
+  <title>EduWell - Education HTML5 Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
-<!--
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <!--
 
 TemplateMo 573 EduWell
 
@@ -173,46 +180,46 @@ https://templatemo.com/tm-573-eduwell
                 background-color: #bd2130; /* Rouge encore plus foncé au clic */
             }
         </style>
-  </head>
+</head>
 
 <body>
 
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          <img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="#Cours">COURSES</a></li>
-                          <li class="scroll-to-section"><a href="#courses">CERTIFICATION</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="about-us.html">About Us</a></li>
-                                  <li><a href="our-services.html">Our Services</a></li>
-                                  <li><a href="contact-us.html">Contact Us</a></li>
-                              </ul>
-                          </li>
-                          <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li> 
-                          <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="indexp.php" class="logo">
+              <img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#Cours">COURSES</a></li>
+              <li class="scroll-to-section"><a href="#courses">CERTIFICATION</a></li>
+              <li class="has-sub">
+                <a href="javascript:void(0)">Pages</a>
+                <ul class="sub-menu">
+                  <li><a href="about-us.html">About Us</a></li>
+                  <li><a href="our-services.php">Our Services</a></li>
+                  <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+              </li>
+              <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
+              <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
       </div>
+    </div>
   </header>
   <!-- ***** Header Area End ***** -->
 
@@ -254,7 +261,7 @@ https://templatemo.com/tm-573-eduwell
 
         <div class="col-lg-6 image-container">
             <div class="icon">
-                <img src="Images/WEB.jpg" alt="WEB" >
+                <img src="image.jpg" alt="WEB">
             </div>
           <div class="col-lg-6" >
             <p>Notre plateforme de formation propose une vaste gamme de cours adaptés aux besoins des apprenants, allant des langages de programmation essentiels aux outils avancés pour le développement web et la gestion de données. 
@@ -275,16 +282,7 @@ https://templatemo.com/tm-573-eduwell
       </div>
     </div>
   </section>
-
-  <div class="HTML" id="H" >
-      <div id="mainLeaderboard" style="overflow:hidden;">
-        <!-- MainLeaderboard-->
-
-        <!--<pre>main_leaderboard, all: [728,90][970,90][320,50][468,60]</pre>-->
-        <div id="adngin-main_leaderboard-0" data-google-query-id="COi1kLDd3YkDFXhHHQkd2F0L1Q"><div id="google_ads_iframe_/22152718,16833175/sws-hb//w3schools.com//main_leaderboard_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/22152718,16833175/sws-hb//w3schools.com//main_leaderboard_0" name="google_ads_iframe_/22152718,16833175/sws-hb//w3schools.com//main_leaderboard_0" title="3rd party ad content" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" aria-label="Advertisement" tabindex="0" allow="private-state-token-redemption;attribution-reporting" data-load-complete="true" data-google-container-id="3" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
-        <!-- adspace leaderboard -->
-
-      </div>
+  
 
   <section class="our-courses" id="courses">
     <div class="container">
@@ -305,15 +303,14 @@ https://templatemo.com/tm-573-eduwell
                     <div class="gradient-border"><span>JAVA</span></div>
                     <div class="gradient-border"><span>C++</span></div>
                     <button class="emoji-button" id="emojiButton">🙋</button>
-<!-- Chatbot wrapper containing the iframe -->
-<div id="chatbot-wrapper">
-    <iframe
-        src="https://www.chatbase.co/chatbot-iframe/liL8fZs9tL5P72Air11OE"
-        width="100%"
-        height="100%"
-        frameborder="0"
-    ></iframe>
-</div>
+                    <!-- Chatbot wrapper containing the iframe -->
+                    <div id="chatbot-wrapper">
+                      <iframe
+                        src="https://www.chatbase.co/chatbot-iframe/liL8fZs9tL5P72Air11OE"
+                        width="100%"
+                        height="100%"
+                        frameborder="0"></iframe>
+                    </div>
                   </div>
                 </div>
                 <div class="col-lg-9">
@@ -322,11 +319,13 @@ https://templatemo.com/tm-573-eduwell
                       <div>
                         <div class="left-image">
                           <img src="assets/images/courses-01.jpg" alt="">
-                          <div class="price"><h6>$128</h6></div>
+                          <div class="price">
+                            <h6>$128</h6>
+                          </div>
                         </div>
                         <div class="right-content">
                           <h4>PHP</h4>
-                
+
                           <span>36 Hours</span>
                           <span>4 Weeks</span>
                           <span class="last-span">1 Certificates</span>
@@ -340,11 +339,13 @@ https://templatemo.com/tm-573-eduwell
                       <div>
                         <div class="left-image">
                           <img src="assets/images/courses-02.jpg" alt="">
-                          <div class="price"><h6>$156</h6></div>
+                          <div class="price">
+                            <h6>$156</h6>
+                          </div>
                         </div>
                         <div class="right-content">
                           <h4>javascript</h4>
-  
+
                           <span>48 Hours</span>
                           <span>6 Weeks</span>
                           <span class="last-span">1 Certificate</span>
@@ -358,11 +359,13 @@ https://templatemo.com/tm-573-eduwell
                       <div>
                         <div class="left-image">
                           <img src="assets/images/courses-03.jpg" alt="">
-                          <div class="price"><h6>$184</h6></div>
+                          <div class="price">
+                            <h6>$184</h6>
+                          </div>
                         </div>
                         <div class="right-content">
                           <h4>JAVA</h4>
-  
+
                           <span>28 Hours</span>
                           <span>4 Weeks</span>
                           <span class="last-span">1 Certificate</span>
@@ -376,7 +379,9 @@ https://templatemo.com/tm-573-eduwell
                       <div>
                         <div class="left-image">
                           <img src="assets/images/courses-04.jpg" alt="">
-                          <div class="price"><h6>$76</h6></div>
+                          <div class="price">
+                            <h6>$76</h6>
+                          </div>
                         </div>
                         <div class="right-content">
                           <h4>C++</h4>
@@ -384,12 +389,12 @@ https://templatemo.com/tm-573-eduwell
                           <span>4 Weeks</span>
                           <span class="last-span">2 Certificates</span>
                           <div class="text-button">
-                            <a href="Fc++.php">testez-vous ici</a>
+                            <a href="c++.php">testez-vous ici</a>
                           </div>
                         </div>
                       </div>
-                      </li>
-                    </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -424,60 +429,28 @@ https://templatemo.com/tm-573-eduwell
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h6>Testimonials</h6>
-            <h4>What They <em>Think</em></h4>
+            <h6>Formation</h6>
+            <h4>Explorez nos offres exclusives et boostez votre carrière avec <em>nos opportunités</em> !</h4>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="owl-testimonials owl-carousel" style="position: relative; z-index: 5;">
-            <div class="item">
-              <p>“just think about TemplateMo if you need free CSS templates for your website”</p>
-                <h4>Catherine Walk</h4>
-                <span>CEO &amp; Founder</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“think about our website first when you need free HTML templates for your website”</p>
-                <h4>David Martin</h4>
-                <span>CTO of Tech Company</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“just think about our website wherever you need free templates for your website”</p>
-                <h4>Sophia Whity</h4>
-                <span>CEO and Co-Founder</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-                <h4>Helen Shiny</h4>
-                <span>Tech Officer</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-                <h4>George Soft</h4>
-                <span>Gadget Reviewer</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-                <h4>Andrew Hall</h4>
-                <span>Marketing Manager</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-                <h4>Maxi Power</h4>
-                <span>Fashion Designer</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
-            <div class="item">
-              <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-                <h4>Olivia Too</h4>
-                <span>Creative Designer</span>
-                <img src="assets/images/quote.png" alt="">
-            </div>
+
+
+
+            <?php foreach ($categories as $categorie): ?>
+              <div class="item">
+                <p><img src="<?php echo htmlspecialchars('assets/images/' . $categorie['image']); ?>" alt="<?php echo htmlspecialchars($categorie['type']); ?>"></p>
+                <h4><i class="icon"></i>
+                  <a href="OffreList.php?id_categorie=<?php echo urlencode($categorie['id_categorie']); ?>">
+                    <?php echo htmlspecialchars($categorie['type']); ?>
+                  </a>
+                </h4>
+                <span>
+                  Cette offre propose un stage immersif et enrichissant permettant aux jeunes talents de découvrir le secteur de l'assurance, de développer leurs compétences et de contribuer à des projets concrets aux côtés de pro.
+                </span>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -489,7 +462,7 @@ https://templatemo.com/tm-573-eduwell
       <div class="row">
         <div class="col-lg-8">
           <div id="map">
-          
+
             <!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7151.84524236698!2d-122.19494600413192!3d47.56605883252286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490695e625f8965%3A0xf99b055e76477def!2sNewcastle%20Beach%20Park%20Playground%2C%20Bellevue%2C%20WA%2098006%2C%20USA!5e0!3m2!1sen!2sth!4v1644335269264!5m2!1sen!2sth" width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
             <div class="row">
@@ -499,7 +472,7 @@ https://templatemo.com/tm-573-eduwell
                     <i class="fa fa-phone"></i>
                   </div>
                   <h4>Phone</h4>
-                  <span>23-046-739</span>
+                  <span>010-020-0340</span>
                 </div>
               </div>
               <div class="col-lg-4">
@@ -557,10 +530,11 @@ https://templatemo.com/tm-573-eduwell
           </ul>
         </div>
         <div class="col-lg-12">
-          <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved. 
-          
-          <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
-          <br>Distribution: <a rel="sponsored" href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+          <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved.
+
+            <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+            <br>Distribution: <a rel="sponsored" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+          </p>
         </div>
       </div>
     </div>
@@ -568,75 +542,75 @@ https://templatemo.com/tm-573-eduwell
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/lightbox.js"></script>
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/video.js"></script>
-    <script src="assets/js/slick-slider.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script>
-        //according to loftblog tut
-        $('.nav li:first').addClass('active');
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/video.js"></script>
+  <script src="assets/js/slick-slider.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script>
+    //according to loftblog tut
+    $('.nav li:first').addClass('active');
 
-        var showSection = function showSection(section, isAnimate) {
+    var showSection = function showSection(section, isAnimate) {
+      var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $('body, html').animate({
+            scrollTop: reqSectionPos
+          },
+          800);
+      } else {
+        $('body, html').scrollTop(reqSectionPos);
+      }
+
+    };
+
+    var checkSection = function checkSection() {
+      $('.section').each(function() {
+        var
+          $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
           var
-          direction = section.replace(/#/, ''),
-          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-          reqSectionPos = reqSection.offset().top - 0;
+            currentId = $this.data('section'),
+            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+          reqLink.closest('li').addClass('active').
+          siblings().removeClass('active');
+        }
+      });
+    };
 
-          if (isAnimate) {
-            $('body, html').animate({
-              scrollTop: reqSectionPos },
-            800);
-          } else {
-            $('body, html').scrollTop(reqSectionPos);
-          }
+    $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function(e) {
+      e.preventDefault();
+      showSection($(this).attr('href'), true);
+    });
 
-        };
+    $(window).scroll(function() {
+      checkSection();
+    });
+    const emojiButton = document.getElementById('emojiButton');
+    const chatbotWrapper = document.getElementById('chatbot-wrapper');
 
-        var checkSection = function checkSection() {
-          $('.section').each(function () {
-            var
-            $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-            if (topEdge < wScroll && bottomEdge > wScroll) {
-              var
-              currentId = $this.data('section'),
-              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-              reqLink.closest('li').addClass('active').
-              siblings().removeClass('active');
-            }
-          });
-        };
+    // Toggle chatbot visibility
+    emojiButton.addEventListener('click', () => {
+      if (chatbotWrapper.style.display === 'none' || chatbotWrapper.style.display === '') {
+        chatbotWrapper.style.display = 'block';
+      } else {
+        chatbotWrapper.style.display = 'none';
+      }
+    });
+  </script>
 
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-          e.preventDefault();
-          showSection($(this).attr('href'), true);
-        });
-
-        $(window).scroll(function () {
-          checkSection();
-        });
-        const emojiButton = document.getElementById('emojiButton');
-        const chatbotWrapper = document.getElementById('chatbot-wrapper');
-
-        // Toggle chatbot visibility
-        emojiButton.addEventListener('click', () => {
-            if (chatbotWrapper.style.display === 'none' || chatbotWrapper.style.display === '') {
-                chatbotWrapper.style.display = 'block';
-            } else {
-                chatbotWrapper.style.display = 'none';
-            }
-        });
-        
-    </script>
-    
 </body>
 
 </html>
