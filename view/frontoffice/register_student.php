@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('C:\xampp\htdocs\projet\dbcon.php');
+include('C:\xampp\htdocs\Ahmed\Integration\dbcon.php');
 
 if (isset($_POST['register_btn'])) {
     $fullname = $_POST['fullname'];

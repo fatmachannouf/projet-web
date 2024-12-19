@@ -1,6 +1,6 @@
-<?php   
+<?php    
 session_start();
-include('C:\xampp\htdocs\projet\dbcon.php');
+include('C:\xampp\htdocs\Ahmed\Integration\dbcon.php');
 
 if (isset($_POST['login_btn'])) {
     $email = $_POST['email'];
@@ -57,6 +57,105 @@ if (isset($_POST['login_btn'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet"> <!-- Link to your custom styles -->
     <title>Login</title>
+    <style>
+        body {
+            background: #f4f7fc;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .header-area {
+            background-color: #03195c;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            width: 200px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .main-nav ul li {
+            margin: 0 20px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .main-nav ul li a:hover {
+            color: #f0a500;
+            text-decoration: underline;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .login-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .login-form:hover {
+            transform: translateY(-10px);
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #f0a500;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #d88b00;
+        }
+
+        .alert {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        a {
+            color: #f0a500;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <header class="header-area header-sticky">
@@ -64,11 +163,9 @@ if (isset($_POST['login_btn'])) {
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <!-- Logo -->
                     <a href="index.html" class="logo">
                         <img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">
                     </a>
-                    <!-- Navigation Menu -->
                     <ul class="nav">
                         <li><a href="#home" class="scroll-to-section active">Home</a></li>
                         <li><a href="#courses" class="scroll-to-section">COURSES</a></li>
@@ -84,7 +181,6 @@ if (isset($_POST['login_btn'])) {
                         <li><a href="#testimonials" class="scroll-to-section">Testimonials</a></li>
                         <li><a href="#contact-section" class="scroll-to-section">Contact Us</a></li>
                     </ul>
-                    <!-- Menu Trigger (for mobile) -->
                     <a class="menu-trigger">
                         <span></span><span></span><span></span>
                     </a>
@@ -95,28 +191,35 @@ if (isset($_POST['login_btn'])) {
 </header>
 <br>
 <br>
+<br><br>
 <br>
+<br>
+<br><br>
 <div class="container mt-4">
-   <br><br><br> <h2>Login</h2>
-    <form action="login.php" method="POST">
-        <?php if (isset($_SESSION['message'])): ?>
-            <div class="alert alert-danger"><?= $_SESSION['message']; ?></div>
-            <?php unset($_SESSION['message']); ?>
-        <?php endif; ?>
+    <div class="login-form">
+        <h2 class="text-center">Login</h2>
+        <form action="login.php" method="POST">
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="alert alert-danger"><?= $_SESSION['message']; ?></div>
+                <?php unset($_SESSION['message']); ?>
+            <?php endif; ?>
 
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <button type="submit" name="login_btn" class="btn btn-primary">Login</button>
-    </form>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
 
-    <p>Don't have an account? <a href="register_student.php">Register here</a></p>
-    <p>Forgot your password? <a href="forgot_password.php">Reset it here</a></p>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <button type="submit" name="login_btn" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        <p class="text-center mt-3">Don't have an account? <a href="register_student.php">Register here</a></p>
+        <p class="text-center">Forgot your password? <a href="forgot_password.php">Reset it here</a></p>
+    </div>
 </div>
 
 </body>

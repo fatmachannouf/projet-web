@@ -71,6 +71,107 @@ https://templatemo.com/tm-573-eduwell
             overflow: hidden;
             z-index: 999;
         }
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 10px;
+    }
+
+    .logo-image {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+    }
+
+    .site-name {
+      font-size: 24px;
+      font-weight: bold;
+      color:aliceblue;
+    }
+
+
+    .image-container {
+      display: flex;
+      justify-content: center; /* Centre horizontalement */
+      margin: 20px 20px;          /* Ajoute un espace autour de l'image */
+    }
+
+    .image-container img {
+      max-width: 500px; /* Ajuste la largeur de l'image */
+      width: 300px; /* Définit une taille par défaut pour l'image */
+      height: 200px;   /* Maintient les proportions */
+    }
+
+    .button-container {
+      text-align: center; /* Centre le contenu du conteneur */
+      display: flex;
+      justify-content: center;
+      gap: 20px; /* Espace entre les boutons */
+      margin-top: 30px; /* Espacement vers le haut */
+            }
+
+    .button-container form {
+      margin: 0;
+    }   
+    .button-container button {
+      background-color: #007bff; /* Bleu clair */
+      color: white; /* Texte en blanc */
+      border: none;
+      border-radius: 8px; /* Coins arrondis */
+      padding: 15px 30px; /* Taille du bouton */
+      font-size: 16px; /* Taille du texte */
+      cursor: pointer; /* Curseur de souris pointer */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+    }
+
+            .button-container button:hover {
+                background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+                transform: scale(1.05); /* Légère animation d'agrandissement */
+            }
+
+            .button-container button:active {
+                background-color: #004085; /* Couleur encore plus foncée quand le bouton est cliqué */
+                transform: scale(1); /* Revenir à la taille originale */
+            }
+
+            .button-container button[type="submit"] {
+                background-color: #28a745; /* Vert pour 'Ajouter' */
+            }
+
+            .button-container button[type="submit"]:hover {
+                background-color: #218838; /* Vert foncé au survol */
+            }
+
+            .button-container button[type="submit"]:active {
+                background-color: #1e7e34; /* Vert encore plus foncé au clic */
+            }
+
+            .button-container button[type="reset"] {
+                background-color: #dc3545; /* Rouge pour 'Supprimer' */
+            }
+
+            .button-container button[type="reset"]:hover {
+                background-color: #c82333; /* Rouge plus foncé au survol */
+            }
+
+            .button-container button[type="reset"]:active {
+                background-color: #bd2130; /* Rouge encore plus foncé au clic */
+            }
         </style>
   </head>
 
@@ -91,7 +192,7 @@ https://templatemo.com/tm-573-eduwell
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li class="scroll-to-section"><a href="#services">COURSES</a></li>
+                          <li class="scroll-to-section"><a href="#Cours">COURSES</a></li>
                           <li class="scroll-to-section"><a href="#courses">CERTIFICATION</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
@@ -138,130 +239,52 @@ https://templatemo.com/tm-573-eduwell
   </section>
   <!-- ***** Main Banner Area End ***** -->
 
-  <section class="services" id="services">
+  <section class="Cours" id="Cours">
     <div class="container">
       <div class="row">
+        <!-- Titre centré en haut -->
         <div class="col-lg-12">
-          <div class="section-heading">
-            <h6>Our Services</h6>
-            <h4>Provided <em>Services</em></h4>
+          <div class="section-heading" style="text-align: center;">
+            <h6>Our Courses</h6>
+            <h4>Cours</h4>
           </div>
         </div>
-        <div class="col-lg-12">
-          <div class="owl-service-item owl-carousel">
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-01.png" alt="">
-                </div>
-                <h4>Useful Tricks</h4>
-                <p>EduWell is the professional HTML5 template for your school or university websites.</p>
-              </div>
+      </div>
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 image-container">
+            <div class="icon">
+                <img src="Images/WEB.jpg" alt="WEB" >
             </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-02.png" alt="">
-                </div>
-                <h4>Creative Ideas</h4>
-                <p>You can download and use this EduWell Template for your teaching and learning stuffs.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-03.png" alt="">
-                </div>
-                <h4>Ready Target</h4>
-                <p>Please tell your friends about the best CSS template website that is TemplateMo.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-04.png" alt="">
-                </div>
-                <h4>Technology</h4>
-                <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-01.png" alt="">
-                </div>
-                <h4>Useful Tricks</h4>
-                <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-02.png" alt="">
-                </div>
-                <h4>Creative Ideas</h4>
-                <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-03.png" alt="">
-                </div>
-                <h4>Ready Target</h4>
-                <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-04.png" alt="">
-                </div>
-                <h4>Technology</h4>
-                <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-01.png" alt="">
-                </div>
-                <h4>Useful Tricks</h4>
-                <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-02.png" alt="">
-                </div>
-                <h4>Creative Ideas</h4>
-                <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-03.png" alt="">
-                </div>
-                <h4>Ready Target</h4>
-                <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
-              </div>
-            </div>
-            <div class="item">
-              <div class="service-item">
-                <div class="icon">
-                  <img src="assets/images/service-icon-04.png" alt="">
-                </div>
-                <h4>Technology</h4>
-                <p>Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.</p>
-              </div>
-            </div>
-          </div>
+          <div class="col-lg-6" >
+            <p>Notre plateforme de formation propose une vaste gamme de cours adaptés aux besoins des apprenants, allant des langages de programmation essentiels aux outils avancés pour le développement web et la gestion de données. 
+                      Les cours incluent <strong>HTML</strong> et <strong>CSS</strong> pour concevoir des interfaces utilisateur, <strong>JavaScript</strong> pour créer des fonctionnalités dynamiques, et <strong>PHP</strong> pour le développement backend.
+                      Nous offrons également une formation approfondie sur <strong>SQL</strong> et <strong>MySQL</strong> pour gérer des bases de données de manière efficace. 
+                      En complément, les langages de programmation traditionnels comme <strong>C</strong> et <strong>C++</strong> permettent de développer une compréhension approfondie de la logique informatique et des bases des systèmes.
+                      De plus, <strong>Python</strong>, connu pour sa simplicité et sa polyvalence, est parfait pour les débutants et les développeurs expérimentés. 
+                      À cela s’ajoutent des matières comme <strong>Ruby</strong>, un langage simple et élégant pour les projets web, et <strong>Java</strong>, une technologie clé pour développer des applications mobiles et des systèmes d'entreprise. 
+                      Que vous soyez débutant ou expert, notre plateforme est conçue pour vous accompagner dans votre apprentissage et votre maîtrise des technologies modernes.</p>
+          </div> 
+          </section>
+          <div class="button-container">
+              <form action="Matiére.php" method="post">
+                  <button type="submit" name="action" value="Lets GO">Lets GO</button>
+              </form>
+          </div> 
         </div>
       </div>
     </div>
   </section>
+
+  <div class="HTML" id="H" >
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+
+        <!--<pre>main_leaderboard, all: [728,90][970,90][320,50][468,60]</pre>-->
+        <div id="adngin-main_leaderboard-0" data-google-query-id="COi1kLDd3YkDFXhHHQkd2F0L1Q"><div id="google_ads_iframe_/22152718,16833175/sws-hb//w3schools.com//main_leaderboard_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/22152718,16833175/sws-hb//w3schools.com//main_leaderboard_0" name="google_ads_iframe_/22152718,16833175/sws-hb//w3schools.com//main_leaderboard_0" title="3rd party ad content" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" aria-label="Advertisement" tabindex="0" allow="private-state-token-redemption;attribution-reporting" data-load-complete="true" data-google-container-id="3" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+        <!-- adspace leaderboard -->
+
+      </div>
 
   <section class="our-courses" id="courses">
     <div class="container">
@@ -361,7 +384,7 @@ https://templatemo.com/tm-573-eduwell
                           <span>4 Weeks</span>
                           <span class="last-span">2 Certificates</span>
                           <div class="text-button">
-                            <a href="c++.php">testez-vous ici</a>
+                            <a href="Fc++.php">testez-vous ici</a>
                           </div>
                         </div>
                       </div>
@@ -476,7 +499,7 @@ https://templatemo.com/tm-573-eduwell
                     <i class="fa fa-phone"></i>
                   </div>
                   <h4>Phone</h4>
-                  <span>010-020-0340</span>
+                  <span>23-046-739</span>
                 </div>
               </div>
               <div class="col-lg-4">

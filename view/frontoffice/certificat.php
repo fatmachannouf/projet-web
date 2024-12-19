@@ -1,4 +1,7 @@
 <?php
+// Inclure la bibliothèque FPDF
+require('fpdf.php');
+
 // Connexion à la base de données
 $host = 'localhost';
 $dbname = 'integration';
@@ -12,7 +15,9 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-// Traitement du formulaire
+$certificatGenere = false;
+$certificatNom = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'];
     $email = $_POST['email'];
@@ -22,9 +27,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO certificat (nom, email, commentaire) VALUES (?, ?, ?)");
     $stmt->execute([$nom, $email, $commentaire]);
 
-    echo "<p>Votre demande de certificat a été enregistrée avec succès !</p>";
+    // Générer le PDF
+    $certificatNom = "certificat_" . strtolower(str_replace(' ', '_', $nom)) . ".pdf";
+
+    $pdf = new FPDF();
+    $pdf->AddPage();
+    $pdf->SetFont('Arial', 'B', 16);
+    $pdf->Cell(0, 10, 'Certificat de Réussite', 0, 1, 'C');
+    $pdf->Ln(10);
+    $pdf->SetFont('Arial', '', 12);
+    $pdf->MultiCell(0, 10, "Ce certificat est attribué à : $nom\n\nEmail : $email\n\nCommentaire : $commentaire\n\nMerci de votre confiance !");
+    $pdf->Output('F', $certificatNom); // Enregistre le PDF dans un fichier
+
+    $certificatGenere = true;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -95,52 +113,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <textarea name="commentaire" placeholder="Commentaires (facultatif)" rows="4"></textarea>
             <button type="submit">Demander le certificat</button>
         </form>
+
+        <?php if ($certificatGenere): ?>
+            <script>
+                alert("Votre certificat est prêt. Cliquez sur OK pour le télécharger.");
+                window.location.href = "<?= htmlspecialchars($certificatNom) ?>";
+            </script>
+        <?php endif; ?>
     </div>
-    <script>
-        async function validateForm(event) {
-            event.preventDefault(); // Empêche la soumission par défaut
-
-            // Récupération des champs
-            const nom = document.querySelector('input[name="nom"]');
-            const email = document.querySelector('input[name="email"]');
-            const commentaire = document.querySelector('textarea[name="commentaire"]');
-            const errorDiv = document.querySelector('#error-messages');
-
-            // Réinitialisation des messages d'erreur
-            errorDiv.innerHTML = '';
-
-            // Validation des champs
-            let valid = true;
-            if (!nom.value.trim()) {
-                valid = false;
-                errorDiv.innerHTML += '<p class="error">Le nom est requis.</p>';
-            }
-
-            if (!email.value.trim()) {
-                valid = false;
-                errorDiv.innerHTML += '<p class="error">L\'email est requis.</p>';
-            } else if (!validateEmail(email.value)) {
-                valid = false;
-                errorDiv.innerHTML += '<p class="error">L\'email n\'est pas valide.</p>';
-            } else {
-                // Validation AJAX pour l'unicité de l'email
-                const response = await fetch('validate_email.php?email=' + encodeURIComponent(email.value));
-                const data = await response.json();
-                if (!data.available) {
-                    valid = false;
-                    errorDiv.innerHTML += '<p class="error">Cet email est déjà utilisé.</p>';
-                }
-            }
-
-            if (valid) {
-                event.target.submit(); // Soumission du formulaire si tout est valide
-            }
-        }
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-    </script>
 </body>
 </html>

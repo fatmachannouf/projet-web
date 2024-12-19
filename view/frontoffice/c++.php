@@ -1,299 +1,197 @@
-<?php
-// Connexion à la base de données
-$host = 'localhost';
-$dbname = 'integration';
-$user = 'root';
-$password = '';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion : " . $e->getMessage());
-}
-
-$query = $pdo->query("SELECT idquestion, texte, type, reponsepossible, reponsecorrecte FROM questions");
-$questions = $query->fetchAll(PDO::FETCH_ASSOC);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_test'])) {
-    $userid = 'user123'; // Utilisateur à récupérer depuis la session ou autre méthode
-    $resultat = [];
-    $score = 0;
-    $totalQuestions = count($questions);
-    $incorrectAnswers = []; // Array pour stocker les questions incorrectes
-
-    foreach ($_POST as $question_key => $user_answer) {
-        if (strpos($question_key, 'q') === 0) {
-            // Extraire l'ID de la question
-            $question_id = substr($question_key, 1);
-            
-            $stmt = $pdo->prepare("SELECT reponsecorrecte FROM questions WHERE idquestion = ?");
-            $stmt->execute([$question_id]);
-            $correct_answer = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($correct_answer) {
-                $note = ($user_answer === $correct_answer['reponsecorrecte']) ? 1 : 0;
-                $score += $note;
-
-                if ($note === 0) {
-                    // Ajouter la question incorrecte à la liste
-                    $incorrectAnswers[] = $question_id;
-                }
-
-                $resultat[] = [
-                    'userid' => $userid,
-                    'idquestion' => $question_id,
-                    'note' => $note
-                ];
-            }
-        }
-    }
-
-    // Insertion des résultats dans la base de données
-    $stmt = $pdo->prepare("INSERT INTO resultat (userid, idquestion, note) VALUES (?, ?, ?)");
-    foreach ($resultat as $result) {
-        $stmt->execute([$result['userid'], $result['idquestion'], $result['note']]);
-    }
-
-    // Calcul du pourcentage et message de certificat
-    $percentage = ($score / $totalQuestions) * 100;
-    $show_certificate = $percentage >= 80;
-
-    $resultMessage = "Votre score : $score / $totalQuestions ($percentage%)";
-    $certificateMessage = $show_certificate
-        ? '🎉 Félicitations ! Vous avez réussi l\'évaluation avec succès.'
-        : 'Désolé, vous n\'avez pas atteint le score requis.';
-
-    // Passer les réponses incorrectes à la vue pour les marquer
-    $incorrectAnswersJson = json_encode($incorrectAnswers);
-} else {
-    $resultMessage = '';
-    $certificateMessage = '';
-    $show_certificate = false;
-    $incorrectAnswersJson = '[]'; // Par défaut, aucune question incorrecte
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Évaluation PHP</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f4f6f9, #d9e2f3);
-            margin: 0;
-            padding: 0;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C++ - Cours complet</title>
+        <!-- CSS Links -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="assets/css/fontawesome.css">
+            <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+            <link rel="stylesheet" href="assets/css/owl.css">
+            <link rel="stylesheet" href="assets/css/lightbox.css">
+            <link rel="stylesheet" href="styles.css"> <!-- Custom styles -->
 
-        .container {
-            width: 100%;
-            max-width: 800px;
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-            overflow: hidden;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #4C6EF5;
-            margin-bottom: 30px;
-            text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .questions {
-            margin-bottom: 25px;
-            background: #f8f9fd;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .questions:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .responses label {
-            display: block;
-            margin-bottom: 15px;
-            cursor: pointer;
-            font-size: 1rem;
-            padding: 10px 15px;
-            background: #e9ecef;
-            border-radius: 10px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .responses label:hover {
-            background-color: #d1e7ff;
-            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15);
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-            accent-color: #4C6EF5;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        button:hover {
-            background: linear-gradient(to right, #2575fc, #6a11cb);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transform: translateY(-3px);
-        }
-
-        #resultat {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #5052cc;
-        }
-
-        #certificate {
-            margin-top: 30px;
-            text-align: center;
-            padding: 25px;
-            background: #eaffea;
-            border: 2px solid #28a745;
-            border-radius: 15px;
-            animation: slideIn 1s ease;
-        }
-
-        #certificate h2 {
-            font-size: 1.6rem;
-            color: #28a745;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        #certificate p {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        #certificate a {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #28a745;
-            color: #fff;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        #certificate a:hover {
-            background: #218838;
-            transform: scale(1.05);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
+            <!-- Owl Carousel CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <style>
+            <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+                padding: 0;
             }
-            to {
-                opacity: 1;
-                transform: scale(1);
+            section {
+            counter-increment: section;
             }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
+            h1 {
+                color: #2c3e50;
+                text-align: center;
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
+            h2 {
+                color: #16a085;
+                border-bottom: 2px solid #16a085;
+                content: counter(section) ". ";
             }
-        }
-    </style>
-    <script>
-        // Cette fonction sera appelée après le rendu de la page
-        window.onload = function() {
-            const incorrectAnswers = <?php echo $incorrectAnswersJson; ?>;
-
-            // Vérifier chaque question
-            incorrectAnswers.forEach(function(questionId) {
-                const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
-                if (questionElement) {
-                    questionElement.style.border = '2px solid red'; // Appliquer le rouge
+            h3 {
+                color: #2980b9;
+            }
+            p {
+                margin: 10px 0;
+            }
+            ul {
+                margin: 10px 20px;
+            }
+            li {
+                margin: 5px 0;
+            }
+            .button-container {
+                    text-align: center; /* Centre le contenu du conteneur */
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px; /* Espace entre les boutons */
+                    margin-top: 30px; /* Espacement vers le haut */
                 }
-            });
-        };
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h1>Test</h1>
-        <form method="POST" action="">
-            <?php foreach ($questions as $index => $question): ?>
-                <div class="questions" data-question-id="<?= $question['idquestion'] ?>">
-                    <h3>Question <?= $index + 1 ?> : <?= htmlspecialchars($question['texte']) ?></h3>
-                    <div class="responses">
-                        <?php
-                        $reponses = explode(',', $question['reponsepossible']);
-                        foreach ($reponses as $reponse): ?>
-                            <label>
-                                <input type="radio" name="q<?= $question['idquestion'] ?>" value="<?= htmlspecialchars($reponse) ?>">
-                                <?= htmlspecialchars($reponse) ?>
-                            </label>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
 
-            <button type="submit" name="submit_test">Soumettre le Test</button>
-        </form>
+                .button-container form {
+                    margin: 0;
+                }   
+                .button-container button {
+                    background-color: #007bff; /* Bleu clair */
+                    color: white; /* Texte en blanc */
+                    border: none;
+                    border-radius: 8px; /* Coins arrondis */
+                    padding: 15px 30px; /* Taille du bouton */
+                    font-size: 16px; /* Taille du texte */
+                    cursor: pointer; /* Curseur de souris pointer */
+                    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+                }
 
-        <div id="resultat"><?= $resultMessage ?></div>
+                .button-container button:hover {
+                    background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+                    transform: scale(1.05); /* Légère animation d'agrandissement */
+                }
 
-        <?php if ($show_certificate): ?>
-            <div id="certificate">
-                <h2>Félicitations !</h2>
-                <p>Vous avez obtenu un score de <?= $score ?>/<?= $totalQuestions ?>. Vous avez droit à un certificat.</p>
-                <a href="certificat.php">Télécharger votre certificat</a>
+                .button-container button:active {
+                    background-color: #004085; /* Couleur encore plus foncée quand le bouton est cliqué */
+                    transform: scale(1); /* Revenir à la taille originale */
+                }
+
+                .button-container button[type="submit"] {
+                    background-color: #28a745; /* Vert pour 'Ajouter' */
+                }
+
+                .button-container button[type="submit"]:hover {
+                    background-color: #218838; /* Vert foncé au survol */
+                }
+
+                .button-container button[type="submit"]:active {
+                    background-color: #1e7e34; /* Vert encore plus foncé au clic */
+                }
+
+                .button-container button[type="reset"] {
+                    background-color: #dc3545; /* Rouge pour 'Supprimer' */
+                }
+
+                .button-container button[type="reset"]:hover {
+                    background-color: #c82333; /* Rouge plus foncé au survol */
+                }
+
+                .button-container button[type="reset"]:active {
+                    background-color: #bd2130; /* Rouge encore plus foncé au clic */
+                }
+                .button-container {
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                .button-container a {
+                    text-decoration: none;
+                    background-color: #007bff;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .button-container a:hover {
+                    background-color: #0056b3;
+                }
+        </style>
+    </head>
+    <body>
+    <h1>Cours de C++</h1>
+    <a href="C++1.php">
+    <h2>Chapitre 1 : Introduction et Bases du Langage</h2>
+    </a>
+    <ul>
+        <li>Historique et applications de C++</li>
+        <li>Installation et configuration de l'IDE</li>
+        <li>Structure d'un programme C++</li>
+        <li>Commentaires et instructions de base (cout, cin)</li>
+        <li>Compilation et exécution d'un programme</li>
+    </ul>
+    <a href="C++2.php">
+    <h2>Chapitre 2 : Variables, Types et Opérateurs</h2>
+    </a>
+    <ul>
+        <li>Types de base et déclaration de variables</li>
+        <li>Constantes et conversions de types</li>
+        <li>Opérateurs arithmétiques, logiques et relationnels</li>
+        <li>Opérateurs d'assignation et composés</li>
+    </ul>
+    <a href="C++3.php">
+    <h2>Chapitre 3 : Structures de Contrôle et Fonctions</h2>
+    </a>
+    <ul>
+        <li>Instructions conditionnelles (if, else, switch)</li>
+        <li>Boucles (for, while, do-while)</li>
+        <li>Définition et appel de fonctions</li>
+        <li>Passage par valeur et par référence</li>
+        <li>Fonctions récursives et surcharge de fonctions</li>
+    </ul>
+    <a href="C++4.php">
+    <h2>Chapitre 4 : POO et Gestion de la Mémoire</h2>
+    </a>
+    <ul>
+        <li>Classes et objets (constructeurs, destructeurs)</li>
+        <li>Encapsulation et surcharge d'opérateurs</li>
+        <li>Héritage et polymorphisme</li>
+        <li>Allocation dynamique (new, delete)</li>
+        <li>Pointeurs et références</li>
+    </ul>
+    <a href="C++5.php">
+    <h2>Chapitre 5 : Bibliothèques et Programmation Avancée</h2>
+    </a>
+    <ul>
+        <li>Introduction à la STL (vector, list, map, etc.)</li>
+        <li>Gestion des fichiers (ifstream, ofstream)</li>
+        <li>Exceptions et gestion des erreurs</li>
+        <li>Multithreading et synchronisation</li>
+        <li>Optimisation et bonnes pratiques</li>
+    </ul>
+
+    <section>
+            <div class="button-container">
+                <a href="C++1.php">Suivant</a>
+                <a href="Matiére.php">Retour à l'accueil</a>
             </div>
-        <?php endif; ?>
+            </section>
+
+    <div class="button-container">
+        <form action="ReadCH.php" method="post">
+            <button type="submit" name="action" value="Lire">Lire</button>
+        </form>
+        <form action="CreateCH.php" method="post">
+            <button type="submit" name="action" value="Ajouter">Ajouter</button>
+        </form>
+        <form action="UpdateCH.php" method="post">
+            <button type="submit" name="action" value="Modifier">Modifier</button>
+        </form>
+        <form action="DeleteCH.php" method="post">
+            <button type="Submit" value="Reset">Supprimer</button>
+        </form>
     </div>
 </body>
+
 </html>

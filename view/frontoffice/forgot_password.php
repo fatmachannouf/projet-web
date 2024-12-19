@@ -22,7 +22,7 @@ if (isset($_POST['forgot_password_btn'])) {
         $statement->execute([':token' => $token, ':email' => $email]); // Exécuter la mise à jour avec le token
 
         // Créer un lien de réinitialisation
-        $resetLink = "C:\xampp\htdocs\projet\view\frontoffice/reset_password.php?token=" . $token;
+        $resetLink = "C:\xampp\htdocs\Ahmed\Integration\view\frontoffice/reset_password.php?token=" . $token;
 
         // Envoi de l'email avec le lien de réinitialisation
         $subject = "Réinitialisation de votre mot de passe";

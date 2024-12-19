@@ -86,7 +86,7 @@ include('C:\xampp\htdocs\projet\dbcon.php');
             </div>
         </div>
     </div>
-    <a href="C:\xampp\htdocs\projet\view\frontoffice\logout.php" class="btn btn-danger">Logout</a>
+    <a href="C:\xampp\htdocs\Ahmed\Integration\view\frontoffice\logout.php" class="btn btn-danger">Logout</a>
 
     <script>
     $(document).ready(function(){
