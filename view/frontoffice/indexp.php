@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include('C:\xampp\htdocs\projet\controller\CategorieController.php');
 $categorie = new CategorieController();
 $categories = $categorie->listCategories();
@@ -192,7 +193,7 @@ https://templatemo.com/tm-573-eduwell
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="indexp.php" class="logo">
+            <a href="index.html" class="logo">
               <img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">
             </a>
             <!-- ***** Logo End ***** -->
